@@ -83,21 +83,27 @@
             <span class="contact-card-row-val">🇳🇱 Netherlands</span>
           </div>
           <div class="contact-card-row">
-            <span class="contact-card-row-label mono">Email</span>
+            <span class="contact-card-row-label mono">General</span>
             <span class="contact-card-row-val">
               <a href="mailto:hello@actuallymatters.co">hello@actuallymatters.co</a>
+            </span>
+          </div>
+          <div class="contact-card-row">
+            <span class="contact-card-row-label mono">Enquiries</span>
+            <span class="contact-card-row-val">
+              <a href="mailto:inquiries@actuallymatters.co">inquiries@actuallymatters.co</a>
             </span>
           </div>
 
           <hr class="contact-card-divider" />
 
           <div class="contact-card-row">
-            <span class="contact-card-row-label mono">VAT</span>
-            <span class="contact-card-row-val mono" style="font-size:12px; color:var(--ink-low);">NL004805638B79</span>
+            <span class="contact-card-row-label mono">KVK</span>
+            <span class="contact-card-row-val mono" style="font-size:12px; color:var(--ink-low);">90316630</span>
           </div>
           <div class="contact-card-row">
-            <span class="contact-card-row-label mono">OB</span>
-            <span class="contact-card-row-val mono" style="font-size:12px; color:var(--ink-low);">655866851B01</span>
+            <span class="contact-card-row-label mono">VAT</span>
+            <span class="contact-card-row-val mono" style="font-size:12px; color:var(--ink-low);">NL004805638B79</span>
           </div>
 
           <p class="contact-reply">We typically reply within<br>1 business day.</p>
@@ -219,12 +225,12 @@
             <a href="mailto:hello@actuallymatters.co" class="company-email">hello@actuallymatters.co</a>
           </div>
           <div class="company-row vat-row">
-            <span class="vat-label mono">VAT</span>
-            <span class="mono vat-value">NL004805638B79</span>
+            <span class="vat-label mono">KVK</span>
+            <span class="mono vat-value">90316630</span>
           </div>
           <div class="company-row vat-row">
-            <span class="vat-label mono">OB</span>
-            <span class="mono vat-value">655866851B01</span>
+            <span class="vat-label mono">VAT</span>
+            <span class="mono vat-value">NL004805638B79</span>
           </div>
         </div>
       </div>
@@ -257,7 +263,7 @@
       /* Open a mailto — replace with a backend/form service when ready */
       const body = encodeURIComponent(`Name: ${name}\n\n${message}`);
       const sub  = encodeURIComponent(`[${subject}] Message from ${name}`);
-      window.location.href = `mailto:hello@actuallymatters.co?subject=${sub}&body=${body}`;
+      window.location.href = `mailto:inquiries@actuallymatters.co?subject=${sub}&body=${body}`;
 
       feedback.style.color = 'var(--signal)';
       feedback.textContent = 'Opening your email client…';
