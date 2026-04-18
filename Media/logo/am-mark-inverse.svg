@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <rect width="1024" height="1024" rx="82" ry="82" fill="#f3f4f7"></rect>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-weight="600" font-size="492" letter-spacing="-30.72" fill="#2f8fff">am</text>
+  <circle cx="847.38" cy="826.9" r="43.5" fill="#2f8fff"></circle>
+</svg>

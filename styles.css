@@ -225,6 +225,15 @@ ul { list-style: none; }
 }
 .nav-monogram-sm { width: 26px; height: 26px; font-size: 9px; }
 .nav-wordmark { font-size: 14px; font-weight: 500; white-space: nowrap; }
+
+/* Logo images — swap dark/light based on data-theme */
+.nav-logo { height: 28px; width: auto; display: block; }
+[data-theme="dark"]  .nav-logo-light  { display: none; }
+[data-theme="light"] .nav-logo-dark   { display: none; }
+
+.footer-logo { height: 24px; width: auto; display: block; }
+[data-theme="dark"]  .footer-logo-light { display: none; }
+[data-theme="light"] .footer-logo-dark  { display: none; }
 .nav-links { display: flex; align-items: center; gap: 28px; margin: 0 auto; }
 .nav-links a { font-size: 14px; color: var(--ink-mid); transition: color 0.2s; }
 .nav-links a:hover { color: var(--ink-hi); }
