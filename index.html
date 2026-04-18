@@ -557,11 +557,13 @@
   </main>
 
   <!-- §12 FOOTER ──────────────────────────────────────────────
-       Three columns: brand + subscribe form / nav links / legal.
+       Four columns: brand + subscribe / navigation / legal / company.
        Email input focuses on keyboard shortcut "/".
        ──────────────────────────────────────────────────────── -->
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
+
+      <!-- Col 1: Brand + subscribe -->
       <div class="footer-col footer-col-main">
         <div class="footer-brand">
           <img class="footer-logo footer-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
@@ -573,6 +575,8 @@
           <button type="submit" class="footer-submit" aria-label="Subscribe">→</button>
         </form>
       </div>
+
+      <!-- Col 2: Navigation -->
       <div class="footer-col">
         <span class="footer-col-label mono">Navigation</span>
         <nav aria-label="Footer navigation">
@@ -580,9 +584,11 @@
           <a href="#pricing" class="footer-link">Pricing</a>
           <a href="#faq" class="footer-link">FAQ</a>
           <a href="#" class="footer-link">Archive</a>
-          <a href="#" class="footer-link">Contact</a>
+          <a href="contact.html" class="footer-link">Contact</a>
         </nav>
       </div>
+
+      <!-- Col 3: Legal -->
       <div class="footer-col">
         <span class="footer-col-label mono">Legal</span>
         <nav aria-label="Legal navigation">
@@ -591,9 +597,35 @@
           <a href="#" class="footer-link">RSS</a>
         </nav>
       </div>
+
+      <!-- Col 4: Company identity -->
+      <div class="footer-col">
+        <span class="footer-col-label mono">Company</span>
+        <p class="company-name">actually.matters</p>
+        <p class="company-parent">A Mondivio Company</p>
+        <div class="company-details">
+          <div class="company-row">
+            <span>🇳🇱</span>
+            <span>Netherlands</span>
+          </div>
+          <div class="company-row">
+            <a href="mailto:hello@actuallymatters.co" class="company-email">hello@actuallymatters.co</a>
+          </div>
+          <div class="company-row vat-row">
+            <span class="vat-label mono">VAT</span>
+            <span class="mono vat-value">NL004805638B79</span>
+          </div>
+          <div class="company-row vat-row">
+            <span class="vat-label mono">OB</span>
+            <span class="mono vat-value">655866851B01</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="footer-bottom">
-      <span class="mono">© 2026 actually.matters · Filtered to what matters · Built for the people who build.</span>
+      <span class="mono">© 2026 actually.matters · A Mondivio Company · Filtered to what matters.</span>
+      <span class="footer-country mono">🇳🇱 Registered in the Netherlands</span>
     </div>
   </footer>
 

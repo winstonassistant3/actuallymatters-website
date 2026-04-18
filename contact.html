@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — actually.matters</title>
+  <meta name="description" content="Get in touch with actually.matters. Questions, press enquiries, or partnerships — one inbox, one person reads it." />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="Media/favicon/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Media/favicon/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="Media/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="Media/favicon/android-chrome-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="Media/favicon/android-chrome-512.png" />
+
+  <!-- Fonts: same stack as index -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- NAV — same as index, links back to index.html sections -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="actually.matters home">
+        <img class="nav-logo nav-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
+        <img class="nav-logo nav-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" />
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#sample">Sample</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="index.html#pricing" class="btn btn-sm btn-accent">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Page header -->
+    <div class="contact-hero">
+      <p class="mono" style="font-size:11px; color:var(--ink-low); letter-spacing:0.1em; margin-bottom:16px;">CONTACT</p>
+      <h1 class="serif">Get in touch.</h1>
+      <p>Questions, feedback, or press enquiries — one inbox, one person reads it.</p>
+    </div>
+
+    <!-- Two-column: company card + form -->
+    <div class="contact-body">
+
+      <!-- Left: Company identity card -->
+      <aside aria-label="Company information">
+        <div class="contact-card">
+
+          <div class="contact-card-logo">
+            <img class="nav-logo nav-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" style="height:20px;" />
+            <img class="nav-logo nav-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" style="height:20px;" />
+          </div>
+
+          <hr class="contact-card-divider" />
+
+          <div class="contact-card-row">
+            <span class="contact-card-row-label mono">Product</span>
+            <span class="contact-card-row-val">actually.matters</span>
+          </div>
+          <div class="contact-card-row">
+            <span class="contact-card-row-label mono">Holding</span>
+            <span class="contact-card-row-val">Mondivio</span>
+          </div>
+          <div class="contact-card-row">
+            <span class="contact-card-row-label mono">Country</span>
+            <span class="contact-card-row-val">🇳🇱 Netherlands</span>
+          </div>
+          <div class="contact-card-row">
+            <span class="contact-card-row-label mono">Email</span>
+            <span class="contact-card-row-val">
+              <a href="mailto:hello@actuallymatters.co">hello@actuallymatters.co</a>
+            </span>
+          </div>
+
+          <hr class="contact-card-divider" />
+
+          <div class="contact-card-row">
+            <span class="contact-card-row-label mono">VAT</span>
+            <span class="contact-card-row-val mono" style="font-size:12px; color:var(--ink-low);">NL004805638B79</span>
+          </div>
+          <div class="contact-card-row">
+            <span class="contact-card-row-label mono">OB</span>
+            <span class="contact-card-row-val mono" style="font-size:12px; color:var(--ink-low);">655866851B01</span>
+          </div>
+
+          <p class="contact-reply">We typically reply within<br>1 business day.</p>
+        </div>
+      </aside>
+
+      <!-- Right: Contact form -->
+      <div class="contact-form-wrap">
+        <h2>Send a message</h2>
+        <form class="contact-form" onsubmit="handleContactSubmit(event)" novalidate>
+
+          <div class="form-group">
+            <label class="form-label" for="contactName">NAME</label>
+            <input
+              type="text"
+              id="contactName"
+              name="name"
+              class="form-input"
+              placeholder="Your name"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contactEmail">EMAIL</label>
+            <input
+              type="email"
+              id="contactEmail"
+              name="email"
+              class="form-input"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contactSubject">SUBJECT</label>
+            <select id="contactSubject" name="subject" class="form-input" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option value="general">General</option>
+              <option value="press">Press &amp; Media</option>
+              <option value="partnerships">Partnerships</option>
+              <option value="billing">Billing</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contactMessage">MESSAGE</label>
+            <textarea
+              id="contactMessage"
+              name="message"
+              class="form-input"
+              placeholder="What's on your mind?"
+              required
+              rows="5"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-accent form-submit btn-magnetic">
+            Send message →
+          </button>
+
+          <!-- Success / error feedback -->
+          <p class="form-feedback mono" id="formFeedback" aria-live="polite"></p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER — identical to index.html footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-col footer-col-main">
+        <div class="footer-brand">
+          <img class="footer-logo footer-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
+          <img class="footer-logo footer-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" />
+        </div>
+        <p class="footer-desc">A weekly decoder for founders, investors, and operators working in tech, business, and markets.</p>
+        <form class="footer-form" onsubmit="return false;" aria-label="Subscribe to newsletter">
+          <input type="email" class="footer-email mono" placeholder="your@email.com" aria-label="Email address" id="footerEmail" />
+          <button type="submit" class="footer-submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label mono">Navigation</span>
+        <nav aria-label="Footer navigation">
+          <a href="index.html#sample" class="footer-link">Sample</a>
+          <a href="index.html#pricing" class="footer-link">Pricing</a>
+          <a href="index.html#faq" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Archive</a>
+          <a href="contact.html" class="footer-link" aria-current="page">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label mono">Legal</span>
+        <nav aria-label="Legal navigation">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">RSS</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label mono">Company</span>
+        <p class="company-name">actually.matters</p>
+        <p class="company-parent">A Mondivio Company</p>
+        <div class="company-details">
+          <div class="company-row">
+            <span>🇳🇱</span>
+            <span>Netherlands</span>
+          </div>
+          <div class="company-row">
+            <a href="mailto:hello@actuallymatters.co" class="company-email">hello@actuallymatters.co</a>
+          </div>
+          <div class="company-row vat-row">
+            <span class="vat-label mono">VAT</span>
+            <span class="mono vat-value">NL004805638B79</span>
+          </div>
+          <div class="company-row vat-row">
+            <span class="vat-label mono">OB</span>
+            <span class="mono vat-value">655866851B01</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span class="mono">© 2026 actually.matters · A Mondivio Company · Filtered to what matters.</span>
+      <span class="footer-country mono">🇳🇱 Registered in the Netherlands</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* Contact form — client-side only (mailto fallback) */
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form     = e.target;
+      const feedback = document.getElementById('formFeedback');
+      const name     = form.name.value.trim();
+      const email    = form.email.value.trim();
+      const subject  = form.subject.value;
+      const message  = form.message.value.trim();
+
+      if (!name || !email || !subject || !message) {
+        feedback.style.color = 'var(--warn)';
+        feedback.textContent = 'Please fill in all fields.';
+        return;
+      }
+
+      /* Open a mailto — replace with a backend/form service when ready */
+      const body = encodeURIComponent(`Name: ${name}\n\n${message}`);
+      const sub  = encodeURIComponent(`[${subject}] Message from ${name}`);
+      window.location.href = `mailto:hello@actuallymatters.co?subject=${sub}&body=${body}`;
+
+      feedback.style.color = 'var(--signal)';
+      feedback.textContent = 'Opening your email client…';
+      form.reset();
+    }
+  </script>
+</body>
+</html>
