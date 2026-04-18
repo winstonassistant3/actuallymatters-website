@@ -931,7 +931,8 @@ details[open] .faq-q::after { transform: rotate(45deg); color: var(--accent); }
   flex-wrap: wrap;
   gap: 8px;
 }
-.footer-country { font-size: 11px; color: var(--ink-low); }
+.footer-country { font-size: 11px; color: var(--ink-low); display: flex; align-items: center; gap: 6px; }
+.nl-flag { width: 18px; height: 12px; border-radius: 2px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
 
 /* ============================================================
    CONTACT PAGE
