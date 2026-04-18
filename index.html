@@ -1,0 +1,595 @@
+<!--
+  index.html — Intelligence Brief landing page
+  ─────────────────────────────────────────────
+  Sections (in order):
+    Global chrome   grain overlay, cursor ring, keyboard hint
+    §1  Nav         sticky glass-morphism header
+    §2  Hero        full-viewport opener with newsletter preview card
+    §3  Marquee     "As read by" infinite scroll strip
+    §4  Problem     noise vs signal (flip cards)
+    §5  What you get  bento grid (schematic, vignettes, bio, word counter)
+    §6  Sample      tier toggle with blurred premium content
+    §7  Pricing     two-column cards with billing toggle
+    §8  How it works  animated timeline
+    §9  Editorial   pull-quote card
+    §10 FAQ         native <details> accordions
+    §11 Final CTA   bottom conversion section
+    §12 Footer      three-column + subscribe form
+
+  Stack: vanilla HTML / CSS / JS. No framework. No build step.
+  Open index.html directly in a browser.
+-->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Actually Matters This Week — Intelligence Brief</title>
+  <meta name="description" content="A weekly decoder for people who make decisions. 200+ sources in tech, business, and markets. One email, every Friday." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ■ GLOBAL CHROME ───────────────────────────────────────── -->
+  <!-- SVG noise layer at 3% opacity, fixed over the whole page -->
+  <div class="grain" aria-hidden="true"></div>
+  <!-- Cursor ring: lags behind cursor, turns accent on interactive elements -->
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- First-load keyboard shortcut hint — dismissed by × button -->
+  <div class="kbd-hint" id="kbdHint" role="status">
+    <span>Press <kbd>S</kbd> for pricing · <kbd>/</kbd> to subscribe</span>
+    <button class="kbd-dismiss" aria-label="Dismiss" onclick="this.parentElement.remove()">×</button>
+  </div>
+
+  <!-- §1 NAV ──────────────────────────────────────────────────
+       Fixed top. Glass-morphism activates (.scrolled) after 40px.
+       Left: monogram + wordmark. Centre: nav links. Right: toggle + CTA.
+       ──────────────────────────────────────────────────────── -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand" aria-label="Intelligence Brief home">
+        <span class="nav-monogram" aria-hidden="true">IB</span>
+        <span class="nav-wordmark">Intelligence Brief</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#sample">Sample</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#pricing" class="btn btn-sm btn-accent">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- §2 HERO ─────────────────────────────────────────────────
+         Full-viewport section. Left column: headline, sub, CTAs,
+         stats. Right column: newsletter preview card with parallax.
+         .mesh-blob behind everything as ambient glow.
+         ──────────────────────────────────────────────────────── -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="mesh-blob" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-issue mono" id="heroIssue"></p>
+          <h1 class="hero-h1 serif" id="hero-heading">
+            What actually <em>matters</em> this week.
+          </h1>
+          <p class="hero-sub">
+            A weekly decoder for people who make decisions. We read 200+ sources in tech, business, and markets so you read one email. Every Friday, 7 a.m. ET.
+          </p>
+          <div class="hero-ctas">
+            <a href="#pricing" class="btn btn-accent btn-magnetic">Start free →</a>
+            <a href="#sample" class="btn btn-ghost">Read this week's issue <span class="arrow">→</span></a>
+          </div>
+          <div class="hero-stats" aria-label="Newsletter stats">
+            <div class="stat">
+              <span class="stat-num mono">200+</span>
+              <span class="stat-label">sources scanned</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num mono">~7</span>
+              <span class="stat-label">signals surfaced</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num mono">6 min</span>
+              <span class="stat-label">to read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-preview" id="heroPreview" aria-label="Sample newsletter preview">
+          <div class="nl-card">
+            <div class="nl-card-header">
+              <span class="mono nl-card-title">WHAT ACTUALLY MATTERS THIS WEEK</span>
+              <span class="mono nl-card-date" id="nlCardDate"></span>
+            </div>
+            <div class="nl-card-body">
+              <p class="mono nl-card-section">TOP SIGNALS</p>
+              <h3 class="nl-card-h3">Salesforce bets the company on AI agent infrastructure</h3>
+              <p class="nl-card-text">Agentforce isn't a feature. It's a full replatform — the analysts pricing it as a CRM add-on are reading the wrong filing.</p>
+              <h3 class="nl-card-h3">AI infrastructure valuations are decoupling from revenue reality</h3>
+              <p class="nl-card-text">The spread between GPU-cloud ARR and implied valuation multiples just hit 2021 SPAC territory.</p>
+              <h3 class="nl-card-h3">OpenAI is building a Super App</h3>
+              <p class="nl-card-text">The ChatGPT iOS redesign isn't UX polish — it's consumer OS strategy. The WeChat comparison is no longer hyperbole.</p>
+            </div>
+            <div class="nl-card-footer mono">Intelligence Brief · Every Friday, 7 a.m. ET</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §3 MARQUEE ──────────────────────────────────────────────
+         Pure CSS @keyframes marquee, pauses on hover.
+         Text duplicated so loop is seamless at any viewport width.
+         ──────────────────────────────────────────────────────── -->
+    <div class="marquee-strip" aria-label="Who reads Intelligence Brief">
+      <div class="marquee-track" aria-hidden="true">
+        <span class="mono marquee-text">Partners at top-tier funds · Operators at Series B–D companies · Chiefs of staff · Heads of strategy · Independent LPs · Seed-stage founders · Policy advisors · Family office principals · Managing directors · Portfolio company CEOs · Partners at top-tier funds · Operators at Series B–D companies · Chiefs of staff · Heads of strategy · Independent LPs · Seed-stage founders · Policy advisors · Family office principals · Managing directors · Portfolio company CEOs ·&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- §4 PROBLEM ──────────────────────────────────────────────
+         Two-column layout. Left: editorial copy. Right: 4 flip
+         cards (CSS 3D, rotateY 180°) showing Noise → Signal.
+         Hover or focus any card to reveal the signal version.
+         ──────────────────────────────────────────────────────── -->
+    <section class="problem reveal-section" id="problem" aria-labelledby="problem-heading">
+      <div class="problem-inner">
+        <div class="problem-left">
+          <h2 class="serif reveal-heading" id="problem-heading">
+            You don't have a news problem.<br>You have a signal problem.
+          </h2>
+          <div class="reveal-block">
+            <p>Every platform optimizes for your attention, not your judgment. The result: 40 browser tabs, three newsletter queues, and a lingering sense that you're one thread away from the thing that actually matters.</p>
+            <p>The information supply chain is broken. High-signal analysis gets buried under takes, hot-takes, and meta-takes about the takes. Most newsletters aggregate. We synthesize.</p>
+            <p>What Actually Matters is not a feed. It's a filter — built by one analyst, covering tech, business, and markets through the lens of what moves capital and decisions.</p>
+          </div>
+        </div>
+        <div class="problem-right reveal-block">
+          <div class="noise-bento">
+            <div class="noise-card" tabindex="0" role="button" aria-label="Noise vs Signal example 1">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="mono card-tag">NOISE</span>
+                  <p class="card-text strike">"AI is going to change everything about how we work in ways we can't predict yet"</p>
+                </div>
+                <div class="card-back">
+                  <span class="mono card-tag signal-tag">SIGNAL</span>
+                  <p class="card-text">"Anthropic's enterprise ACV doubled Q/Q. The adoption curve is now ahead of SaaS at the same stage."</p>
+                </div>
+              </div>
+            </div>
+            <div class="noise-card" tabindex="0" role="button" aria-label="Noise vs Signal example 2">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="mono card-tag">NOISE</span>
+                  <p class="card-text strike">"Markets volatile as investors weigh macro uncertainty and Fed signals"</p>
+                </div>
+                <div class="card-back">
+                  <span class="mono card-tag signal-tag">SIGNAL</span>
+                  <p class="card-text">"The 2yr/10yr inversion resolved. Last three times: soft landing, recession, recession. This time the data mix is different."</p>
+                </div>
+              </div>
+            </div>
+            <div class="noise-card" tabindex="0" role="button" aria-label="Noise vs Signal example 3">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="mono card-tag">NOISE</span>
+                  <p class="card-text strike">"Geopolitical tensions continue to affect global supply chains and trade"</p>
+                </div>
+                <div class="card-back">
+                  <span class="mono card-tag signal-tag">SIGNAL</span>
+                  <p class="card-text">"Vietnam's semiconductor compliance just became the new Taiwan risk proxy. Watch the TSMC supply chain disclosures."</p>
+                </div>
+              </div>
+            </div>
+            <div class="noise-card" tabindex="0" role="button" aria-label="Noise vs Signal example 4">
+              <div class="card-inner">
+                <div class="card-front">
+                  <span class="mono card-tag">NOISE</span>
+                  <p class="card-text strike">"Tech layoffs signal broader uncertainty in the innovation economy"</p>
+                </div>
+                <div class="card-back">
+                  <span class="mono card-tag signal-tag">SIGNAL</span>
+                  <p class="card-text">"The layoffs are in middle management. AI/infra headcount is up 34% at the same firms. This is reallocation, not contraction."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §5 WHAT YOU GET ─────────────────────────────────────────
+         Named-area CSS Grid bento layout:
+           large  — issue schematic (mono table)
+           wide   — vignette slider (auto-advances every 4s)
+           s1     — analyst bio tile
+           s2     — word counter tile (counts 0→1850 on scroll)
+         ──────────────────────────────────────────────────────── -->
+    <section class="what-you-get reveal-section" id="what-you-get" aria-labelledby="wyg-heading">
+      <div class="section-inner">
+        <h2 class="serif reveal-heading" id="wyg-heading">Seven signals. One email. Zero filler.</h2>
+        <div class="bento-grid">
+          <div class="bento-tile tile-large reveal-block">
+            <span class="mono tile-label">THE WEEKLY READ</span>
+            <h3 class="tile-h3">How every issue is structured</h3>
+            <div class="issue-schematic mono">
+              <div class="schema-row"><span class="schema-num">01</span><span class="schema-item">This Week in 60 Seconds</span><span class="schema-meta">executive summary</span></div>
+              <div class="schema-row"><span class="schema-num">02</span><span class="schema-item">Top Signals</span><span class="schema-meta">5–7 deep reads</span></div>
+              <div class="schema-row"><span class="schema-num">03</span><span class="schema-item">Market Moves</span><span class="schema-meta">what's priced in</span></div>
+              <div class="schema-row"><span class="schema-num">04</span><span class="schema-item">What Most People Miss</span><span class="schema-meta">non-obvious read</span></div>
+              <div class="schema-row"><span class="schema-num">05</span><span class="schema-item">Opportunities</span><span class="schema-meta">by role</span></div>
+              <div class="schema-row"><span class="schema-num">06</span><span class="schema-item">Bottom Line</span><span class="schema-meta">the call</span></div>
+            </div>
+          </div>
+
+          <div class="bento-tile tile-wide reveal-block">
+            <span class="mono tile-label">WHAT MOST PEOPLE MISS</span>
+            <h3 class="tile-h3">Non-obvious reads from past issues</h3>
+            <div class="vignette-wrap" aria-live="polite">
+              <div class="vignette active">
+                <p class="vignette-text">"The DOGE efficiency narrative obscures the actual risk: 40% of federal contracting runs through 3 SaaS platforms. If procurement freezes, the downstream effect hits mid-market software within 90 days."</p>
+                <span class="mono vignette-source">Issue #41 · Jan 2026</span>
+              </div>
+              <div class="vignette">
+                <p class="vignette-text">"Nvidia's data center revenue beats mask a mix shift: hyperscaler capex is peaking while sovereign AI spend is just starting. The next two quarters are about geography, not volume."</p>
+                <span class="mono vignette-source">Issue #38 · Dec 2025</span>
+              </div>
+              <div class="vignette">
+                <p class="vignette-text">"The model that wins enterprise AI isn't the most capable — it's the one that integrates into procurement workflows. That's why Salesforce's move matters more than the benchmark wars."</p>
+                <span class="mono vignette-source">Issue #35 · Nov 2025</span>
+              </div>
+            </div>
+            <div class="vignette-dots" aria-label="Slide indicators">
+              <button class="dot active" aria-label="Slide 1" data-idx="0"></button>
+              <button class="dot" aria-label="Slide 2" data-idx="1"></button>
+              <button class="dot" aria-label="Slide 3" data-idx="2"></button>
+            </div>
+          </div>
+
+          <div class="bento-tile tile-s1 reveal-block">
+            <span class="mono tile-label">THE ANALYST</span>
+            <h3 class="tile-h3">Written by one analyst, not a team</h3>
+            <p class="tile-body">No interns. No AI slop. No sponsored takes. One perspective, accountable and bylined — because that's the only kind worth reading.</p>
+            <span class="mono tile-meta">15 years · venture, markets, enterprise software</span>
+          </div>
+
+          <div class="bento-tile tile-s2 reveal-block">
+            <span class="mono tile-label">READ TIME</span>
+            <h3 class="tile-h3">6 minutes, guaranteed</h3>
+            <p class="tile-body">Dense where it needs to be. Never padded. The word count is locked before publication.</p>
+            <div class="word-counter-wrap mono">
+              <span class="word-counter-num" id="wordCounter">0</span> words
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §6 SAMPLE ISSUE ─────────────────────────────────────────
+         Sliding pill toggle between Free and Premium editions.
+         data-tier="free"    → .prem-content blurred, lock overlay shown
+         data-tier="premium" → blur lifted, content animates in (revealIn)
+         All content is real HTML — no fake screenshots.
+         ──────────────────────────────────────────────────────── -->
+    <section class="sample reveal-section" id="sample" aria-labelledby="sample-heading">
+      <div class="section-inner">
+        <h2 class="serif reveal-heading" id="sample-heading">See exactly what you get in each tier.</h2>
+
+        <div class="tier-toggle reveal-block" role="group" aria-label="Select edition">
+          <button class="tier-btn active" data-tier="free" aria-pressed="true">Free edition</button>
+          <button class="tier-btn" data-tier="premium" aria-pressed="false">Premium edition</button>
+          <div class="toggle-pill" id="tierPill" aria-hidden="true"></div>
+        </div>
+
+        <div class="sample-card reveal-block" id="sampleCard" data-tier="free">
+          <div class="nl-email">
+            <div class="nl-email-header">
+              <h1 class="nl-email-title">What Actually Matters This Week</h1>
+              <p class="mono nl-email-meta">INTELLIGENCE BRIEF · <span id="sampleDate"></span></p>
+            </div>
+
+            <div class="nl-block">
+              <h2 class="nl-section-title">This Week in 60 Seconds</h2>
+              <p>Three things moved the needle this week: Salesforce's Agentforce replatform signals a full enterprise AI OS play; AI infrastructure valuations are decoupling from revenue in ways that rhyme with 2021; and OpenAI's super-app pivot is now a real threat to Apple's services moat. Each one has second-order effects the consensus is underweighting.</p>
+            </div>
+
+            <div class="nl-block">
+              <h2 class="nl-section-title">Top Signals</h2>
+              <div class="nl-signal">
+                <h3 class="nl-signal-h3">Salesforce bets the company on AI agent infrastructure</h3>
+                <p>Agentforce isn't a feature. It's a full replatform — and the analysts pricing it as a CRM add-on are reading the wrong filing. The S-1 language around "agent revenue" is new. The margin profile of agentic workflows is closer to AWS than to SaaS. The market is pricing Salesforce like a mature CRM. The product is now something else entirely.</p>
+              </div>
+              <div class="nl-signal premium-row" data-premium="true">
+                <h3 class="nl-signal-h3">AI infrastructure valuations are decoupling from revenue reality <span class="prem-badge mono">PREMIUM</span></h3>
+                <p class="prem-content">The spread between GPU-cloud ARR and implied valuation multiples just hit 2021 SPAC territory. CoreWeave at 30x forward is not a data center company — it's a bet on perpetual hyperscaler outsourcing. The stress test: if one hyperscaler brings 20% of GPU capacity in-house, what's the clearing price? Nobody in the bull case is running that scenario.</p>
+              </div>
+              <div class="nl-signal premium-row" data-premium="true">
+                <h3 class="nl-signal-h3">OpenAI is building a Super App <span class="prem-badge mono">PREMIUM</span></h3>
+                <p class="prem-content">The ChatGPT iOS redesign isn't UX polish — it's consumer OS strategy. The comparison to WeChat is no longer hyperbole. Payments, search, memory, voice, image generation: all in one interface, all with a persistent user identity. The implication for Apple's services business is not hypothetical.</p>
+              </div>
+            </div>
+
+            <div class="nl-block premium-block" data-premium="true">
+              <h2 class="nl-section-title">What Most People Miss <span class="prem-badge mono">PREMIUM</span></h2>
+              <p class="prem-content">The model that wins enterprise AI isn't the most capable — it's the one that integrates into procurement workflows. Salesforce's real move this week wasn't Agentforce. It was the quiet update to their AppExchange compliance framework. Every enterprise AI vendor now has to certify through it or get locked out of Fortune 500 procurement.</p>
+            </div>
+
+            <div class="nl-block premium-block" data-premium="true">
+              <h2 class="nl-section-title">What You Should Do <span class="prem-badge mono">PREMIUM</span></h2>
+              <p class="prem-content"><strong>If you're a founder:</strong> Get ahead of AppExchange certification before it becomes a mandatory procurement checkbox. The window to differentiate on compliance is 6–9 months.<br><br><strong>If you're an investor:</strong> Rerate your AI infrastructure positions against a scenario where hyperscaler insourcing accelerates. The base case is too clean.<br><br><strong>If you're an operator:</strong> The CFO conversation about AI spend is about to get harder. Map your tool stack to measurable ROI before Q3 budget reviews.</p>
+            </div>
+
+            <div class="nl-block">
+              <h2 class="nl-section-title">Market Moves</h2>
+              <p>Tech outperformed the broader index by 3.2% this week, driven by AI-adjacent names. The move was narrow — NVDA, MSFT, and CRM accounted for most of it.</p>
+              <div class="premium-row" data-premium="true">
+                <p class="prem-content">The rotation out of consumer discretionary into enterprise software accelerated. Institutional money is repositioning for a world where AI capex is a fixed cost, not a growth bet. Watch the Q2 guidance language from the hyperscalers — if they start framing AI spend as maintenance capex, multiple compression in infrastructure names will be severe.</p>
+              </div>
+            </div>
+
+            <div class="nl-block">
+              <h2 class="nl-section-title">Opportunities</h2>
+              <ul class="nl-list">
+                <li>Enterprise AI compliance tooling — the AppExchange dynamic creates a wedge for security-first AI vendors.</li>
+                <li>Sovereign AI infrastructure — non-US government spend on domestic AI compute is real and accelerating.</li>
+                <li class="premium-row" data-premium="true"><span class="prem-content">Agent-native CRM alternatives — if Agentforce is the OS, the app layer is wide open.</span></li>
+                <li class="premium-row" data-premium="true"><span class="prem-content">GPU brokerage arbitrage — the spread between spot and reserved compute is at a 12-month high.</span></li>
+                <li class="premium-row" data-premium="true"><span class="prem-content">WeChat-model adjacent plays in Western markets — payments + AI + identity is a bundle someone will ship.</span></li>
+              </ul>
+            </div>
+
+            <div class="nl-block">
+              <h2 class="nl-section-title">Bottom Line</h2>
+              <p>This week was a reminder that the AI story is bifurcating. The consumer narrative (ChatGPT super-app) and the enterprise narrative (Agentforce OS) are on separate tracks with separate valuation logics. Investors still treating them as one trend are going to get the call wrong.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §7 PRICING ──────────────────────────────────────────────
+         Two cards: Free (bg-1) and Premium (bg-2, accent top border).
+         Billing toggle animates price $12↔$9 via requestAnimationFrame.
+         Premium card has magnetic effect (follows cursor ±6px).
+         ──────────────────────────────────────────────────────── -->
+    <section class="pricing reveal-section" id="pricing" aria-labelledby="pricing-heading">
+      <div class="mesh-blob mesh-blob-2" aria-hidden="true"></div>
+      <div class="section-inner">
+        <h2 class="serif reveal-heading" id="pricing-heading">Pick your depth.</h2>
+        <p class="section-sub reveal-block">Same research. Two ways to read it.</p>
+
+        <div class="billing-toggle reveal-block" role="group" aria-label="Billing period">
+          <button class="billing-btn active" data-billing="monthly" aria-pressed="true">Monthly</button>
+          <button class="billing-btn" data-billing="annual" aria-pressed="false">Annual — save 25%</button>
+          <div class="toggle-pill" id="billingPill" aria-hidden="true"></div>
+        </div>
+
+        <div class="pricing-grid reveal-block">
+          <div class="price-card price-free">
+            <div class="price-eyebrow mono">FREE · WEEKLY</div>
+            <div class="price-amount">
+              <span class="price-num serif">$0</span>
+              <span class="price-period mono">/ forever</span>
+            </div>
+            <p class="price-tagline">The weekly pulse.</p>
+            <hr class="price-divider" />
+            <ul class="price-features">
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>This Week in 60 Seconds</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The top signal, in full</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Teasers for signals 2–3</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>First paragraph of Market Moves</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Top 2 Opportunities</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Bottom Line takeaway</li>
+            </ul>
+            <a href="#" class="btn btn-outline btn-full">Start free →</a>
+            <p class="price-micro mono">No card required.</p>
+          </div>
+
+          <div class="price-card price-premium btn-magnetic" id="premiumCard">
+            <div class="price-badge mono">MOST POPULAR</div>
+            <div class="price-eyebrow mono">PREMIUM · WEEKLY + FULL ARCHIVE</div>
+            <div class="price-amount">
+              <span class="price-num serif" id="premiumPrice">$12</span>
+              <span class="price-period mono">/ month</span>
+            </div>
+            <p class="price-annual-line mono" id="annualLine">$108/year — save 25%</p>
+            <p class="price-tagline">Everything. Every week.</p>
+            <hr class="price-divider" />
+            <ul class="price-features">
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Free</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>All 5–7 Top Signals in full depth</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>What Most People Miss</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>What You Should Do — by role</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Market Moves analysis</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Market Positioning</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Opportunities breakdown</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>My Take — editor's unfiltered call</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full searchable archive</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority replies to questions</li>
+            </ul>
+            <a href="#" class="btn btn-accent btn-full btn-magnetic" id="premiumCTA">Upgrade to Premium →</a>
+            <p class="price-micro mono">Cancel anytime. No contracts. 14-day refund.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §8 HOW IT WORKS ─────────────────────────────────────────
+         Vertical timeline. .timeline-fill draws down the track
+         as user scrolls through — driven by getBoundingClientRect
+         in script.js. Each step reveals via .reveal-block.
+         ──────────────────────────────────────────────────────── -->
+    <section class="how-it-works reveal-section" id="how-it-works" aria-labelledby="hiw-heading">
+      <div class="section-inner">
+        <h2 class="serif reveal-heading" id="hiw-heading">How an issue gets made.</h2>
+        <div class="timeline">
+          <div class="timeline-track" aria-hidden="true">
+            <div class="timeline-fill" id="timelineFill"></div>
+          </div>
+          <div class="timeline-step reveal-block">
+            <div class="step-num serif" aria-hidden="true">01</div>
+            <div class="step-body">
+              <span class="mono step-meta">Mon–Wed · ~200 sources scanned</span>
+              <h3 class="step-title">Scan</h3>
+              <p class="step-desc">Primary sources only: earnings calls, regulatory filings, research papers, policy documents, and a curated set of high-signal operators. No aggregators. No recycled takes.</p>
+            </div>
+          </div>
+          <div class="timeline-step reveal-block">
+            <div class="step-num serif" aria-hidden="true">02</div>
+            <div class="step-body">
+              <span class="mono step-meta">Wed–Thu · ~40 stories evaluated</span>
+              <h3 class="step-title">Filter</h3>
+              <p class="step-desc">Each candidate signal is tested against three questions: Is this actually new? Does it change a decision? Is the consensus reading it correctly? Most don't pass.</p>
+            </div>
+          </div>
+          <div class="timeline-step reveal-block">
+            <div class="step-num serif" aria-hidden="true">03</div>
+            <div class="step-body">
+              <span class="mono step-meta">Thu · Deep analysis, one analyst</span>
+              <h3 class="step-title">Analyze</h3>
+              <p class="step-desc">The 5–7 signals that survive get context: second-order effects, historical analogues, what the market is pricing in, what it's missing.</p>
+            </div>
+          </div>
+          <div class="timeline-step reveal-block">
+            <div class="step-num serif" aria-hidden="true">04</div>
+            <div class="step-body">
+              <span class="mono step-meta">Friday · 7 a.m. ET</span>
+              <h3 class="step-title">Ship</h3>
+              <p class="step-desc">In your inbox before markets open. ~1,850 words. Six minutes. No filler added to hit a word count.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §9 EDITORIAL ────────────────────────────────────────────
+         Single centred card. Pull-quote in Fraunces italic.
+         No headshot — the words carry the credibility.
+         ──────────────────────────────────────────────────────── -->
+    <section class="editorial reveal-section" id="editorial" aria-labelledby="ed-heading">
+      <div class="section-inner">
+        <div class="editorial-card reveal-block">
+          <blockquote class="editorial-quote serif" id="ed-heading">
+            "Written by one analyst. No AI slop. No sponsored takes. If it's in the newsletter, I stand behind it."
+          </blockquote>
+          <cite class="editorial-attr mono">— The Editor · Intelligence Brief</cite>
+          <p class="editorial-note mono">15 years across venture, markets, and enterprise software. Previously: fund analysis, enterprise advisory, strategic communications.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- §10 FAQ ─────────────────────────────────────────────────
+         Native <details>/<summary> elements styled with CSS.
+         + rotates to × on open via the details[open] selector.
+         No JS required for open/close behaviour.
+         ──────────────────────────────────────────────────────── -->
+    <section class="faq reveal-section" id="faq" aria-labelledby="faq-heading">
+      <div class="section-inner">
+        <h2 class="serif reveal-heading" id="faq-heading">Questions.</h2>
+        <div class="faq-list">
+          <details class="faq-item reveal-block">
+            <summary class="faq-q">What's actually in the free version?</summary>
+            <div class="faq-a"><p>The free version gives you the "This Week in 60 Seconds" executive summary, the top signal in full, teasers for signals 2–3, the first paragraph of Market Moves, two Opportunities, and the Bottom Line. It's a complete read — not a teaser designed to frustrate you into upgrading.</p></div>
+          </details>
+          <details class="faq-item reveal-block">
+            <summary class="faq-q">How is this different from Stratechery, The Information, or Bloomberg?</summary>
+            <div class="faq-a"><p>Stratechery goes deep on tech strategy; we cover tech, business, and markets together because they're inseparable. The Information is reported journalism; we're synthesis and analysis. Bloomberg is a terminal; we're a weekly signal filter. One analyst, one email, one call per week — accountable and bylined.</p></div>
+          </details>
+          <details class="faq-item reveal-block">
+            <summary class="faq-q">Can I cancel anytime?</summary>
+            <div class="faq-a"><p>Yes. No contracts, no lock-ins, no guilt flows. Cancel from your account page in two clicks. If you cancel within 14 days of any payment, you get a full refund — no questions.</p></div>
+          </details>
+          <details class="faq-item reveal-block">
+            <summary class="faq-q">When does it arrive and how long is it?</summary>
+            <div class="faq-a"><p>Every Friday at 7 a.m. ET. Approximately 1,850 words — six minutes at average reading speed. The word count is set before publication. It does not stretch to fill space.</p></div>
+          </details>
+          <details class="faq-item reveal-block">
+            <summary class="faq-q">Do you cover my sector?</summary>
+            <div class="faq-a"><p>The core categories are: Tech, Business, Markets, Geopolitics, Logistics, and Energy. Coverage follows signal density. The constant is the decision-relevance test: if it doesn't move capital or change how a founder, investor, or operator should act, it doesn't make the cut.</p></div>
+          </details>
+          <details class="faq-item reveal-block">
+            <summary class="faq-q">What's your editorial policy on AI-generated content?</summary>
+            <div class="faq-a"><p>The analysis, framing, and calls are written by the editor — not generated. AI tools are used for research assistance (aggregating primary sources, scanning filings), the same way a good analyst uses a Bloomberg terminal. The judgment calls are human. The byline is real.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- §11 FINAL CTA ───────────────────────────────────────────
+         Mirror of the hero CTAs. Mesh blob behind for depth.
+         Mono line repeats the key promise: Friday · 7am · 6min.
+         ──────────────────────────────────────────────────────── -->
+    <section class="final-cta reveal-section" aria-labelledby="fcta-heading">
+      <div class="mesh-blob mesh-blob-3" aria-hidden="true"></div>
+      <div class="section-inner text-center">
+        <h2 class="serif reveal-heading" id="fcta-heading">Start reading the one email that respects your time.</h2>
+        <div class="hero-ctas reveal-block">
+          <a href="#pricing" class="btn btn-accent btn-magnetic">Start free →</a>
+          <a href="#sample" class="btn btn-ghost">Read this week's issue <span class="arrow">→</span></a>
+        </div>
+        <p class="final-meta mono reveal-block">Every Friday · 7 a.m. ET · ~6 minutes · Cancel anytime.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- §12 FOOTER ──────────────────────────────────────────────
+       Three columns: brand + subscribe form / nav links / legal.
+       Email input focuses on keyboard shortcut "/".
+       ──────────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-col footer-col-main">
+        <div class="footer-brand">
+          <span class="nav-monogram nav-monogram-sm" aria-hidden="true">IB</span>
+          <span class="nav-wordmark">Intelligence Brief</span>
+        </div>
+        <p class="footer-desc">A weekly decoder for founders, investors, and operators working in tech, business, and markets.</p>
+        <form class="footer-form" onsubmit="return false;" aria-label="Subscribe to newsletter">
+          <input type="email" class="footer-email mono" placeholder="your@email.com" aria-label="Email address" id="footerEmail" />
+          <button type="submit" class="footer-submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label mono">Navigation</span>
+        <nav aria-label="Footer navigation">
+          <a href="#sample" class="footer-link">Sample</a>
+          <a href="#pricing" class="footer-link">Pricing</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Archive</a>
+          <a href="#" class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label mono">Legal</span>
+        <nav aria-label="Legal navigation">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">RSS</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="mono">© 2026 Intelligence Brief · Filtered to what matters · Built for the people who build.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
