@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're in — actually.matters</title>
+  <meta name="description" content="Thanks for subscribing to actually.matters. Your first issue arrives this Saturday at 9 a.m." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="Media/favicon/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Media/favicon/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="Media/favicon/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Page-specific layout ── */
+    .confirm-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-h) + 40px) var(--pad) 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .confirm-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .confirm-icon svg { color: var(--accent); }
+
+    .confirm-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      animation: fadeUp 0.5s ease 0.1s both;
+    }
+
+    .confirm-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink-hi);
+      margin-bottom: 20px;
+      animation: fadeUp 0.5s ease 0.15s both;
+    }
+
+    .confirm-sub {
+      font-size: clamp(15px, 1.4vw, 18px);
+      color: var(--ink-mid);
+      max-width: 44ch;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+      animation: fadeUp 0.5s ease 0.2s both;
+    }
+
+    .confirm-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-low);
+      margin-top: 40px;
+      animation: fadeUp 0.5s ease 0.35s both;
+    }
+
+    .confirm-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 40px;
+      animation: fadeUp 0.5s ease 0.25s both;
+    }
+
+    .confirm-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      animation: fadeUp 0.5s ease 0.3s both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.7); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="actually.matters home">
+        <img class="nav-logo nav-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
+        <img class="nav-logo nav-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" />
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#sample">Sample</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="confirm-wrap">
+      <div class="mesh-blob" aria-hidden="true"></div>
+
+      <!-- Check icon -->
+      <div class="confirm-icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+
+      <p class="confirm-label mono">SUBSCRIPTION CONFIRMED</p>
+
+      <h1 class="confirm-h1 serif">You're in.</h1>
+
+      <p class="confirm-sub">
+        Your first issue of <strong>actually.matters</strong> lands this Saturday at 9 a.m. — a signal-filtered read on tech, business, and markets. Six minutes. No filler.
+      </p>
+
+      <!-- Stats row -->
+      <div class="confirm-stats">
+        <div class="stat">
+          <span class="stat-num mono">200+</span>
+          <span class="stat-label">sources scanned</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num mono">~7</span>
+          <span class="stat-label">signals surfaced</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num mono">6 min</span>
+          <span class="stat-label">to read</span>
+        </div>
+      </div>
+
+      <div class="confirm-actions">
+        <a href="index.html#sample" class="btn btn-accent btn-magnetic">Read a sample issue →</a>
+        <a href="index.html" class="btn btn-ghost">Back to home</a>
+      </div>
+
+      <p class="confirm-meta">Every Saturday · 9 a.m. · actually.matters · A Mondivio Company</p>
+    </div>
+  </main>
+
+  <!-- Minimal footer -->
+  <div class="footer-bottom" style="border-top: 1px solid var(--line);">
+    <span class="mono">© 2026 actually.matters · A Mondivio Company</span>
+    <span class="footer-country mono">
+      <svg class="nl-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#AE1C28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468B"/></svg>
+      Registered in the Netherlands
+    </span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

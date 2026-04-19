@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unsubscribed — actually.matters</title>
+  <meta name="description" content="You've been unsubscribed from actually.matters. You won't receive any further emails." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="Media/favicon/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Media/favicon/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="Media/favicon/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Page-specific layout ── */
+    .confirm-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-h) + 40px) var(--pad) 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .confirm-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--ink-low) 10%, transparent);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .confirm-icon svg { color: var(--ink-mid); }
+
+    .confirm-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--ink-low);
+      margin-bottom: 16px;
+      animation: fadeUp 0.5s ease 0.1s both;
+    }
+
+    .confirm-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink-hi);
+      margin-bottom: 20px;
+      animation: fadeUp 0.5s ease 0.15s both;
+    }
+
+    .confirm-sub {
+      font-size: clamp(15px, 1.4vw, 18px);
+      color: var(--ink-mid);
+      max-width: 44ch;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+      animation: fadeUp 0.5s ease 0.2s both;
+    }
+
+    .confirm-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-low);
+      margin-top: 40px;
+      animation: fadeUp 0.5s ease 0.35s both;
+    }
+
+    .confirm-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      animation: fadeUp 0.5s ease 0.3s both;
+    }
+
+    .unsub-note {
+      margin-top: 28px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-low);
+      max-width: 40ch;
+      line-height: 1.6;
+      animation: fadeUp 0.5s ease 0.28s both;
+    }
+
+    .unsub-note a {
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+    .unsub-note a:hover { color: var(--accent-hi); }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.7); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="actually.matters home">
+        <img class="nav-logo nav-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
+        <img class="nav-logo nav-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" />
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#sample">Sample</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="confirm-wrap">
+
+      <!-- X icon — neutral, not red, not guilt-trippy -->
+      <div class="confirm-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+
+      <p class="confirm-label mono">UNSUBSCRIBED</p>
+
+      <h1 class="confirm-h1 serif">You're out.</h1>
+
+      <p class="confirm-sub">
+        Done. No more emails from <strong>actually.matters</strong>. Your data will not be used for anything else.
+      </p>
+
+      <div class="confirm-actions">
+        <a href="https://buttondown.com/Actually.Matters" target="_blank" rel="noopener" class="btn btn-accent btn-magnetic">Resubscribe</a>
+        <a href="index.html" class="btn btn-ghost">Back to home</a>
+      </div>
+
+      <p class="unsub-note">
+        Changed your mind? You can resubscribe any time.<br>
+        Questions? <a href="mailto:hello@actuallymatters.co">hello@actuallymatters.co</a>
+      </p>
+
+      <p class="confirm-meta">actually.matters · A Mondivio Company</p>
+    </div>
+  </main>
+
+  <!-- Minimal footer -->
+  <div class="footer-bottom" style="border-top: 1px solid var(--line);">
+    <span class="mono">© 2026 actually.matters · A Mondivio Company</span>
+    <span class="footer-country mono">
+      <svg class="nl-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#AE1C28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468B"/></svg>
+      Registered in the Netherlands
+    </span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
