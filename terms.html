@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — actually.matters</title>
+  <meta name="description" content="Terms of service for actually.matters. Plain English. Governed by Dutch law." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="Media/favicon/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Media/favicon/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="Media/favicon/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .legal-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + clamp(60px, 8vw, 100px)) var(--pad) var(--gap);
+    }
+    .legal-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .legal-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .legal-updated {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-low);
+      margin-bottom: 56px;
+      display: block;
+    }
+    .legal-section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .legal-section:last-child {
+      border-bottom: none;
+    }
+    .legal-h2 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink-hi);
+      margin-bottom: 12px;
+    }
+    .legal-p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .legal-p:last-child { margin-bottom: 0; }
+    .legal-ul {
+      margin: 10px 0 12px 0;
+      padding-left: 20px;
+      list-style: disc;
+    }
+    .legal-ul li {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin-bottom: 4px;
+    }
+    .legal-a {
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+    .legal-a:hover { color: var(--accent-hi); }
+  </style>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="actually.matters home">
+        <img class="nav-logo nav-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
+        <img class="nav-logo nav-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" />
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#sample">Sample</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="https://buttondown.com/Actually.Matters" target="_blank" rel="noopener" class="btn btn-sm btn-accent">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="legal-wrap">
+
+      <span class="legal-label mono">TERMS OF SERVICE</span>
+      <h1 class="legal-h1 serif">Simple terms.</h1>
+      <span class="legal-updated mono">Last updated: April 2026</span>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">The service</h2>
+        <p class="legal-p">actually.matters is a weekly newsletter covering tech, business, and markets. It is published every Saturday at 9 a.m. by actually.matters, a product of Mondivio, a company registered in the Netherlands (KVK 90316630).</p>
+        <p class="legal-p">By subscribing, you agree to these terms. If you do not agree, please do not subscribe.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Subscriptions</h2>
+        <p class="legal-p">actually.matters offers two tiers:</p>
+        <ul class="legal-ul">
+          <li><strong>Free</strong> — weekly newsletter delivered to your inbox, no charge.</li>
+          <li><strong>Premium</strong> — full access including archives and any additional premium content. Pricing is shown on the website and is billed monthly or annually via Buttondown.</li>
+        </ul>
+        <p class="legal-p">You can cancel your paid subscription at any time. Access continues until the end of the current billing period.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Refunds</h2>
+        <p class="legal-p">If you are not satisfied with a paid subscription, you can request a full refund within 14 days of payment. No questions asked. Email us at <a href="mailto:hello@actuallymatters.co" class="legal-a">hello@actuallymatters.co</a> and we will process the refund within 5 business days.</p>
+        <p class="legal-p">After 14 days, refunds are issued at our discretion. There are no lock-in contracts.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Intellectual property</h2>
+        <p class="legal-p">All content published in actually.matters — including text, analysis, and branding — is owned by actually.matters / Mondivio and is protected by Dutch and international copyright law.</p>
+        <p class="legal-p">You may share individual quotes or excerpts with attribution. You may not reproduce, redistribute, or resell full issues or substantial portions of content without our prior written permission.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Disclaimer</h2>
+        <p class="legal-p">actually.matters is a journalism and analysis product. All content is for informational purposes only. Nothing we publish constitutes financial, investment, legal, or professional advice.</p>
+        <p class="legal-p">We do our best to be accurate and timely. We are not liable for decisions you make based on our analysis. Markets move fast; always do your own research.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Limitation of liability</h2>
+        <p class="legal-p">To the fullest extent permitted by Dutch law, actually.matters and Mondivio shall not be liable for any indirect, incidental, or consequential damages arising from use of the service.</p>
+        <p class="legal-p">In any case, our total liability to you shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Governing law</h2>
+        <p class="legal-p">These terms are governed by the laws of the Netherlands. Any disputes that cannot be resolved informally will be submitted to the competent courts in the Netherlands.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Changes to these terms</h2>
+        <p class="legal-p">We may update these terms from time to time. If we make material changes, we will notify subscribers by email before the changes take effect. Continued use of the service after that date constitutes acceptance of the updated terms.</p>
+        <p class="legal-p">The "last updated" date at the top of this page always reflects the current version.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 class="legal-h2">Contact</h2>
+        <p class="legal-p">Questions about these terms? Get in touch:</p>
+        <p class="legal-p">
+          Mondivio<br>
+          KVK: 90316630<br>
+          VAT: NL004805638B79<br>
+          <a href="mailto:hello@actuallymatters.co" class="legal-a">hello@actuallymatters.co</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-col footer-col-main">
+        <div class="footer-brand">
+          <img class="footer-logo footer-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
+          <img class="footer-logo footer-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" />
+        </div>
+        <p class="footer-desc">A weekly decoder for founders, investors, and operators working in tech, business, and markets.</p>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label mono">Navigation</span>
+        <nav aria-label="Footer navigation">
+          <a href="index.html#sample" class="footer-link">Sample</a>
+          <a href="index.html#pricing" class="footer-link">Pricing</a>
+          <a href="index.html#faq" class="footer-link">FAQ</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label mono">Legal</span>
+        <nav aria-label="Legal navigation">
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="terms.html" class="footer-link" aria-current="page">Terms</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-label mono">Company</span>
+        <p class="company-name">actually.matters</p>
+        <p class="company-parent">A Mondivio Company</p>
+        <div class="company-details">
+          <div class="company-row">
+            <svg class="nl-flag" viewBox="0 0 18 12" aria-label="Netherlands flag" role="img"><rect width="18" height="4" fill="#AE1C28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468B"/></svg>
+            <span>Netherlands</span>
+          </div>
+          <div class="company-row">
+            <a href="mailto:hello@actuallymatters.co" class="company-email">hello@actuallymatters.co</a>
+          </div>
+          <div class="company-row vat-row">
+            <span class="vat-label mono">KVK</span>
+            <span class="mono vat-value">90316630</span>
+          </div>
+          <div class="company-row vat-row">
+            <span class="vat-label mono">VAT</span>
+            <span class="mono vat-value">NL004805638B79</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="mono">© 2026 actually.matters · A Mondivio Company · Filtered to what matters.</span>
+      <span class="footer-country mono">
+        <svg class="nl-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#AE1C28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468B"/></svg>
+        Registered in the Netherlands
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
