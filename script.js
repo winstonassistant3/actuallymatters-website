@@ -232,8 +232,12 @@ function animateCount(el, from, to, prefix = '$') {
   })(start);
 }
 
+const PREMIUM_URL_MONTHLY = 'https://buttondown.com/actually.matters/buy';
+const PREMIUM_URL_ANNUAL  = 'https://buy.stripe.com/00w9ATcEa5kh1jdeYWfMA00';
+
 if (billingPill && billingBtns.length) {
   const updateBillingPill = initPill(billingPill, billingBtns);
+  const premiumCTA = document.getElementById('premiumCTA');
 
   billingBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -248,9 +252,11 @@ if (billingPill && billingBtns.length) {
       if (btn.dataset.billing === 'annual') {
         animateCount(premiumPrice, 12, 9);
         if (annualLine) annualLine.classList.add('visible');
+        if (premiumCTA) premiumCTA.href = PREMIUM_URL_ANNUAL;
       } else {
         animateCount(premiumPrice, 9, 12);
         if (annualLine) annualLine.classList.remove('visible');
+        if (premiumCTA) premiumCTA.href = PREMIUM_URL_MONTHLY;
       }
     });
   });
