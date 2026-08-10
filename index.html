@@ -9,7 +9,7 @@
     §4  Problem     noise vs signal (flip cards)
     §5  What you get  bento grid (schematic, vignettes, bio, word counter)
     §6  Sample      tier toggle with blurred premium content
-    §7  Pricing     two-column cards with billing toggle
+    §7  Pricing     two-column cards, single annual plan
     §8  How it works  animated timeline
     §9  Editorial   pull-quote card
     §10 FAQ         native <details> accordions
@@ -24,8 +24,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>actually.matters — A Weekly Decoder</title>
-  <meta name="description" content="A weekly decoder for people who make decisions. 200+ sources in tech, business, and markets. One email, every Saturday." />
+  <title>actually.matters — A Twice-Weekly Decoder</title>
+  <meta name="description" content="A twice-weekly decoder for people who make decisions. 200+ stories a week in tech, business, and markets. Two emails, Wednesday and Saturday." />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="Media/favicon/favicon-32.png" />
@@ -95,7 +95,7 @@
             What actually <em>matters</em> this week.
           </h1>
           <p class="hero-sub">
-            A weekly decoder for people who make decisions. We read 200+ sources in tech, business, and markets so you read one email. Every Saturday, 9 a.m.
+            A twice-weekly decoder for people who make decisions. We read 200+ stories a week in tech, business, and markets so you read two short emails. Wednesday and Saturday, 7 a.m.
           </p>
           <div class="hero-ctas">
             <a href="https://buttondown.com/Actually.Matters" target="_blank" rel="noopener" class="btn btn-accent btn-magnetic">Start free →</a>
@@ -108,8 +108,8 @@
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat">
-              <span class="stat-num mono">~7</span>
-              <span class="stat-label">signals surfaced</span>
+              <span class="stat-num mono">3</span>
+              <span class="stat-label">signals per issue</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat">
@@ -134,7 +134,7 @@
               <h3 class="nl-card-h3">OpenAI is building a Super App</h3>
               <p class="nl-card-text">The ChatGPT iOS redesign isn't UX polish — it's consumer OS strategy. The WeChat comparison is no longer hyperbole.</p>
             </div>
-            <div class="nl-card-footer mono">actually.matters · Every Saturday, 9 a.m.</div>
+            <div class="nl-card-footer mono">actually.matters · Wednesday &amp; Saturday, 7 a.m.</div>
           </div>
         </div>
       </div>
@@ -231,17 +231,17 @@
          ──────────────────────────────────────────────────────── -->
     <section class="what-you-get reveal-section" id="what-you-get" aria-labelledby="wyg-heading">
       <div class="section-inner">
-        <h2 class="serif reveal-heading" id="wyg-heading">Seven signals. One email. Zero filler.</h2>
+        <h2 class="serif reveal-heading" id="wyg-heading">Three signals. Two emails. Zero filler.</h2>
         <div class="bento-grid">
           <div class="bento-tile tile-large reveal-block">
             <span class="mono tile-label">THE WEEKLY READ</span>
             <h3 class="tile-h3">How every issue is structured</h3>
             <div class="issue-schematic mono">
               <div class="schema-row"><span class="schema-num">01</span><span class="schema-item">This Week in 60 Seconds</span><span class="schema-meta">executive summary</span></div>
-              <div class="schema-row"><span class="schema-num">02</span><span class="schema-item">Top Signals</span><span class="schema-meta">5–7 deep reads</span></div>
+              <div class="schema-row"><span class="schema-num">02</span><span class="schema-item">Signals</span><span class="schema-meta">3 deep reads</span></div>
               <div class="schema-row"><span class="schema-num">03</span><span class="schema-item">Market Moves</span><span class="schema-meta">what's priced in</span></div>
-              <div class="schema-row"><span class="schema-num">04</span><span class="schema-item">What Most People Miss</span><span class="schema-meta">non-obvious read</span></div>
-              <div class="schema-row"><span class="schema-num">05</span><span class="schema-item">Opportunities</span><span class="schema-meta">by role</span></div>
+              <div class="schema-row"><span class="schema-num">04</span><span class="schema-item">What I'm Not Certain Of</span><span class="schema-meta">the honest limits</span></div>
+              <div class="schema-row"><span class="schema-num">05</span><span class="schema-item">What Didn't Make The Cut</span><span class="schema-meta">and why</span></div>
               <div class="schema-row"><span class="schema-num">06</span><span class="schema-item">Bottom Line</span><span class="schema-meta">the call</span></div>
             </div>
           </div>
@@ -373,7 +373,7 @@
 
     <!-- §7 PRICING ──────────────────────────────────────────────
          Two cards: Free (bg-1) and Premium (bg-2, accent top border).
-         Billing toggle animates price $12↔$9 via requestAnimationFrame.
+         Single annual plan — $19.99/yr founding rate, no billing toggle.
          Premium card has magnetic effect (follows cursor ±6px).
          ──────────────────────────────────────────────────────── -->
     <section class="pricing reveal-section" id="pricing" aria-labelledby="pricing-heading">
@@ -382,27 +382,21 @@
         <h2 class="serif reveal-heading" id="pricing-heading">Pick your depth.</h2>
         <p class="section-sub reveal-block">Same research. Two ways to read it.</p>
 
-        <div class="billing-toggle reveal-block" role="group" aria-label="Billing period">
-          <button class="billing-btn active" data-billing="monthly" aria-pressed="true">Monthly</button>
-          <button class="billing-btn" data-billing="annual" aria-pressed="false">Annual — save 25%</button>
-          <div class="toggle-pill" id="billingPill" aria-hidden="true"></div>
-        </div>
-
         <div class="pricing-grid reveal-block">
           <div class="price-card price-free">
-            <div class="price-eyebrow mono">FREE · WEEKLY</div>
+            <div class="price-eyebrow mono">FREE · TWICE WEEKLY</div>
             <div class="price-amount">
               <span class="price-num serif">$0</span>
               <span class="price-period mono">/ forever</span>
             </div>
-            <p class="price-tagline">The weekly pulse.</p>
+            <p class="price-tagline">The twice-weekly pulse.</p>
             <hr class="price-divider" />
             <ul class="price-features">
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>This Week in 60 Seconds</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>In 60 Seconds — the executive summary</li>
               <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The top signal, in full</li>
               <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Teasers for signals 2–3</li>
               <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>First paragraph of Market Moves</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Top 2 Opportunities</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>What didn't make the cut — and why</li>
               <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Bottom Line takeaway</li>
             </ul>
             <a href="https://buttondown.com/Actually.Matters" target="_blank" rel="noopener" class="btn btn-outline btn-full">Start free →</a>
@@ -411,27 +405,27 @@
 
           <div class="price-card price-premium btn-magnetic" id="premiumCard">
             <div class="price-badge mono">MOST POPULAR</div>
-            <div class="price-eyebrow mono">PREMIUM · WEEKLY + FULL ARCHIVE</div>
+            <div class="price-eyebrow mono">PREMIUM · TWICE WEEKLY + FULL ARCHIVE</div>
             <div class="price-amount">
-              <span class="price-num serif" id="premiumPrice">$12</span>
-              <span class="price-period mono">/ month</span>
+              <span class="price-num serif" id="premiumPrice">$19.99</span>
+              <span class="price-period mono">/ year</span>
             </div>
-            <p class="price-annual-line mono" id="annualLine">$108/year — save 25%</p>
+            <p class="price-annual-line mono">Founding rate &mdash; $29.99 after the first 100 subscribers.</p>
             <p class="price-tagline">Everything. Every week.</p>
             <hr class="price-divider" />
             <ul class="price-features">
               <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Free</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>All 5–7 Top Signals in full depth</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>What Most People Miss</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>What You Should Do — by role</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>All three signals in full depth</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The second-order read on every signal</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>What I'm not certain of — the honest limits</li>
               <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Market Moves analysis</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Market Positioning</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Opportunities breakdown</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>My Take — editor's unfiltered call</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full searchable archive</li>
-              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority replies to questions</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>What to do — by role (operator / founder / investor)</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full Positioning</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The Call — the editor's judgement</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Every claim linked to its source</li>
+              <li><svg class="chk" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Full archive</li>
             </ul>
-            <a href="https://buttondown.com/actually.matters/buy" target="_blank" rel="noopener" class="btn btn-accent btn-full btn-magnetic" id="premiumCTA">Upgrade to Premium →</a>
+            <a href="https://buy.stripe.com/dRm7sLfQmdQN2nh9ECfMA02" target="_blank" rel="noopener" class="btn btn-accent btn-full btn-magnetic" id="premiumCTA">Upgrade to Premium →</a>
             <p class="price-micro mono">Cancel anytime. No contracts. 14-day refund.</p>
           </div>
         </div>
@@ -453,7 +447,7 @@
           <div class="timeline-step reveal-block">
             <div class="step-num serif" aria-hidden="true">01</div>
             <div class="step-body">
-              <span class="mono step-meta">Mon–Wed · ~200 sources scanned</span>
+              <span class="mono step-meta">Every run · ~110 stories scanned</span>
               <h3 class="step-title">Scan</h3>
               <p class="step-desc">Primary sources only: earnings calls, regulatory filings, research papers, policy documents, and a curated set of high-signal operators. No aggregators. No recycled takes.</p>
             </div>
@@ -461,7 +455,7 @@
           <div class="timeline-step reveal-block">
             <div class="step-num serif" aria-hidden="true">02</div>
             <div class="step-body">
-              <span class="mono step-meta">Wed–Thu · ~40 stories evaluated</span>
+              <span class="mono step-meta">Shortlist · ~10 candidates evaluated</span>
               <h3 class="step-title">Filter</h3>
               <p class="step-desc">Each candidate signal is tested against three questions: Is this actually new? Does it change a decision? Is the consensus reading it correctly? Most don't pass.</p>
             </div>
@@ -469,7 +463,7 @@
           <div class="timeline-step reveal-block">
             <div class="step-num serif" aria-hidden="true">03</div>
             <div class="step-body">
-              <span class="mono step-meta">Thu · Deep analysis, one analyst</span>
+              <span class="mono step-meta">Three signals · everything else is cut</span>
               <h3 class="step-title">Analyze</h3>
               <p class="step-desc">The 5–7 signals that survive get context: second-order effects, historical analogues, what the market is pricing in, what it's missing.</p>
             </div>
@@ -477,9 +471,9 @@
           <div class="timeline-step reveal-block">
             <div class="step-num serif" aria-hidden="true">04</div>
             <div class="step-body">
-              <span class="mono step-meta">Saturday · 9 a.m.</span>
+              <span class="mono step-meta">Wednesday &amp; Saturday · 7 a.m.</span>
               <h3 class="step-title">Ship</h3>
-              <p class="step-desc">In your inbox before markets open. ~1,850 words. Six minutes. No filler added to hit a word count.</p>
+              <p class="step-desc">In your inbox before markets open. Around 1,500 words. Six minutes. No filler added to hit a word count.</p>
             </div>
           </div>
         </div>
@@ -517,7 +511,7 @@
           </details>
           <details class="faq-item reveal-block">
             <summary class="faq-q">How is this different from Stratechery, The Information, or Bloomberg?</summary>
-            <div class="faq-a"><p>Stratechery goes deep on tech strategy; we cover tech, business, and markets together because they're inseparable. The Information is reported journalism; we're synthesis and analysis. Bloomberg is a terminal; we're a weekly signal filter. One analyst, one email, one call per week — accountable and bylined.</p></div>
+            <div class="faq-a"><p>Stratechery goes deep on tech strategy; we cover tech, business, and markets together because they're inseparable. The Information is reported journalism; we're synthesis and analysis. Bloomberg is a terminal; we're a twice-weekly signal filter. Two short emails a week, three signals per issue, every claim linked to its source.</p></div>
           </details>
           <details class="faq-item reveal-block">
             <summary class="faq-q">Can I cancel anytime?</summary>
@@ -525,7 +519,7 @@
           </details>
           <details class="faq-item reveal-block">
             <summary class="faq-q">When does it arrive and how long is it?</summary>
-            <div class="faq-a"><p>Every Saturday at 9 a.m. Approximately 1,850 words — six minutes at average reading speed. The word count is set before publication. It does not stretch to fill space.</p></div>
+            <div class="faq-a"><p>Every Wednesday and Saturday at 7 a.m. Around 1,500 words — six minutes at average reading speed. Three signals per issue, and we tell you what we cut and why.</p></div>
           </details>
           <details class="faq-item reveal-block">
             <summary class="faq-q">Do you cover my sector?</summary>
@@ -541,7 +535,7 @@
 
     <!-- §11 FINAL CTA ───────────────────────────────────────────
          Mirror of the hero CTAs. Mesh blob behind for depth.
-         Mono line repeats the key promise: Saturday · 9am · 6min.
+         Mono line repeats the key promise: Wed &amp; Sat · 7am · 6min.
          ──────────────────────────────────────────────────────── -->
     <section class="final-cta reveal-section" aria-labelledby="fcta-heading">
       <div class="mesh-blob mesh-blob-3" aria-hidden="true"></div>
@@ -551,7 +545,7 @@
           <a href="https://buttondown.com/Actually.Matters" target="_blank" rel="noopener" class="btn btn-accent btn-magnetic">Start free →</a>
           <a href="#sample" class="btn btn-ghost">Read this week's issue <span class="arrow">→</span></a>
         </div>
-        <p class="final-meta mono reveal-block">Every Saturday · 9 a.m. · ~6 minutes · Cancel anytime.</p>
+        <p class="final-meta mono reveal-block">Wednesday &amp; Saturday · 7 a.m. · ~6 minutes · Cancel anytime.</p>
       </div>
     </section>
 
@@ -570,7 +564,7 @@
           <img class="footer-logo footer-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters" />
           <img class="footer-logo footer-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters" />
         </div>
-        <p class="footer-desc">A weekly decoder for founders, investors, and operators working in tech, business, and markets.</p>
+        <p class="footer-desc">A twice-weekly decoder for founders, investors, and operators working in tech, business, and markets.</p>
         <form class="footer-form" onsubmit="window.open('https://buttondown.com/Actually.Matters','_blank');return false;" aria-label="Subscribe to newsletter">
           <input type="email" class="footer-email mono" placeholder="your@email.com" aria-label="Email address" id="footerEmail" />
           <button type="submit" class="footer-submit" aria-label="Subscribe">→</button>

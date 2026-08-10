@@ -10,11 +10,11 @@
  *  5. Scroll reveal        — IntersectionObserver drives .in-view on sections
  *  6. Hero parallax        — newsletter card translates ±9px on mouse move
  *  7. Magnetic buttons     — CTA buttons follow cursor within ±6px
- *  8. Toggle pill helper   — shared sliding pill for tier + billing toggles
+ *  8. Toggle pill helper   — sliding pill for the sample tier toggle
  *  9. Sample tier toggle   — Free / Premium content gate (blur + lock overlay)
- * 10. Billing toggle       — Monthly / Annual price count animation
+ * 10. Pricing              — single annual plan, no toggle
  * 11. Vignette slider      — auto-advances every 4s, dot controls
- * 12. Word counter         — counts from 0 → 1,850 when tile enters viewport
+ * 12. Word counter         — counts from 0 → 1,500 when tile enters viewport
  * 13. Timeline fill        — animated accent line draws as you scroll
  * 14. Keyboard shortcuts   — S → pricing, / → footer email
  */
@@ -210,57 +210,11 @@ if (sampleCard && tierPill && tierBtns.length) {
 }
 
 /* ============================================================
-   10. BILLING TOGGLE + PRICE ANIMATION
-   Switches billing pill and animates the premium price number
-   between $12 (monthly) and $9 (annual) using a requestAnimationFrame
-   eased counter. Shows/hides the annual savings line.
+   10. PRICING
+   Single annual plan ($19.99/yr founding rate) — no billing toggle, no price
+   animation. The CTA links straight to the Stripe payment link
+   in the markup.
    ============================================================ */
-const billingBtns  = document.querySelectorAll('.billing-btn');
-const billingPill  = document.getElementById('billingPill');
-const premiumPrice = document.getElementById('premiumPrice');
-const annualLine   = document.getElementById('annualLine');
-
-/* Eased number count-up/down over ~380ms */
-function animateCount(el, from, to, prefix = '$') {
-  const dur   = 380;
-  const start = performance.now();
-  (function tick(now) {
-    const p      = Math.min((now - start) / dur, 1);
-    const eased  = p < 0.5 ? 2 * p * p : -1 + (4 - 2 * p) * p; /* ease-in-out */
-    el.textContent = prefix + Math.round(from + (to - from) * eased);
-    if (p < 1) requestAnimationFrame(tick);
-  })(start);
-}
-
-const PREMIUM_URL_MONTHLY = 'https://buttondown.com/actually.matters/buy';
-const PREMIUM_URL_ANNUAL  = 'https://buy.stripe.com/00w9ATcEa5kh1jdeYWfMA00';
-
-if (billingPill && billingBtns.length) {
-  const updateBillingPill = initPill(billingPill, billingBtns);
-  const premiumCTA = document.getElementById('premiumCTA');
-
-  billingBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      billingBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
-      updateBillingPill(btn);
-
-      if (btn.dataset.billing === 'annual') {
-        animateCount(premiumPrice, 12, 9);
-        if (annualLine) annualLine.classList.add('visible');
-        if (premiumCTA) premiumCTA.href = PREMIUM_URL_ANNUAL;
-      } else {
-        animateCount(premiumPrice, 9, 12);
-        if (annualLine) annualLine.classList.remove('visible');
-        if (premiumCTA) premiumCTA.href = PREMIUM_URL_MONTHLY;
-      }
-    });
-  });
-}
 
 /* ============================================================
    11. VIGNETTE SLIDER
@@ -294,7 +248,7 @@ if (vignettes.length) startVigTimer();
 
 /* ============================================================
    12. WORD COUNTER ANIMATION
-   Counts from 0 → 1,850 over ~1.8s using setInterval at 60fps.
+   Counts from 0 → 1,500 over ~1.8s using setInterval at 60fps.
    Fires once when the tile scrolls into view (IntersectionObserver
    disconnects after first trigger).
    ============================================================ */
@@ -303,7 +257,7 @@ if (wordCounterEl) {
   const wcObs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
       let count = 0;
-      const target = 1850;
+      const target = 1500;
       const step   = target / (1800 / 16); /* ~60fps over 1.8s */
       const t = setInterval(() => {
         count = Math.min(count + step, target);
