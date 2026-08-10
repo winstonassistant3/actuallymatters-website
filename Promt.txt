@@ -1,0 +1,140 @@
+Here's a much sharper prompt. It's written for a 2026-tier design audience (think Linear, Vercel, Ramp, Perplexity, Arc) and treats the reader the way your newsletter does — sophisticated, data-literate, allergic to fluff.
+
+PROMPT TO PASTE INTO CURSOR:
+Build me a modern, high-design landing page for a premium weekly intelligence newsletter called "What Actually Matters This Week" (publisher: Intelligence Brief). Audience: founders, investors, operators working in AI, markets, geopolitics. They're already paying for Bloomberg, Stratechery, The Information, Matt Levine. The site must feel like it belongs in that tier.
+Design north stars (reference these explicitly): Linear.app, Vercel, Ramp.com, Perplexity, Anthropic, Read.cv, Pitch. Not SaaS-template energy. Editorial + terminal + modern software.
+Stack & constraints:
+
+Single index.html + styles.css + script.js. No framework, no build step. Vanilla HTML/CSS/JS only — runs by double-clicking the file.
+Minimal dependencies: one Google Fonts import is allowed for typography. Everything else inline.
+Use modern CSS: grid, subgrid, container queries, color-mix(), clamp() for fluid typography, CSS variables for the full design token system, @supports where needed.
+Use IntersectionObserver (no libraries) for scroll-triggered reveals. Use prefers-reduced-motion to disable animations for users who want that.
+Fully responsive, mobile-first, no horizontal scroll. Pixel-perfect on 1440, 1024, 768, 390.
+Dark-by-default. Include a working light/dark toggle in the nav — persist choice in localStorage.
+Accessibility: semantic HTML, proper landmarks, keyboard-focus rings, aria-* on interactive widgets, WCAG AA contrast in both modes.
+
+Design tokens (derived from the newsletter, upgraded for a modern site):
+--bg-0: #0B0B14          /* near-black with navy undertone */
+--bg-1: #11111C          /* card surface */
+--bg-2: #1A1A2E          /* elevated surface, matches newsletter header */
+--ink-hi: #F4F6F9        /* primary text on dark */
+--ink-mid: #95A5A6
+--ink-low: #6B7280
+--line: rgba(255,255,255,0.08)
+--accent: #2980B9        /* from newsletter */
+--accent-hi: #3FA2E6     /* brighter hover/focus */
+--accent-glow: rgba(41,128,185,0.35)
+--signal: #00E5A8        /* subtle green, used sparingly for positive data */
+--warn: #FFB547          /* subtle amber, for "watch" signals */
+Light mode inverts --bg-* and --ink-* with #F4F6F9 base and #1A1A2E ink.
+Typography:
+
+Display: a modern editorial serif. Use Instrument Serif or Fraunces from Google Fonts. H1/H2 use this.
+UI/body: Inter (variable). Use optical sizing.
+Mono accents: JetBrains Mono for data points, ticker, metadata.
+Fluid sizes via clamp(). H1 ~clamp(44px, 6vw, 88px), line-height 0.95, tight letter-spacing.
+Body 16–17px, line-height 1.6.
+
+Global texture:
+
+Subtle SVG grain/noise overlay at ~3% opacity fixed over the page.
+Mesh-gradient blur blob behind the hero (two radial gradients using --accent and a deep violet #3A1F5D at low opacity, filter: blur(120px)).
+Hairline 1px borders in --line on cards — thin, precise, not rounded-cartoony. 12px radius max.
+
+Page sections (top to bottom):
+1. Nav
+Sticky, glass-morphism (backdrop-filter: blur(16px), translucent bg). Left: monogram "IB" in a 32px square with --accent border, wordmark "Intelligence Brief" next to it in Inter 14px. Center: nav links "Sample", "How it works", "Pricing", "FAQ". Right: theme toggle (sun/moon SVG) + small "Subscribe" pill button in --accent. Nav condenses on scroll (height shrinks, border appears).
+2. Hero — this is the money shot
+Full viewport height. Left-aligned, asymmetric.
+
+Above H1: small JetBrains Mono label ISSUE №${weekNumber} · ${today} (compute live in JS — current week number + today's date in "Fri, 17 Apr 2026" format).
+H1 (serif, massive): "What actually matters this week." Period included. The word "matters" is set in italic serif with a thin underline in --accent.
+Sub (Inter, 18–20px, --ink-mid, max 60ch): "A weekly decoder for people who make decisions. We read 200+ sources in AI, markets, and geopolitics so you read one email. Every Friday, 7 a.m. ET."
+Two CTAs side by side: primary solid --accent "Start free →" with a subtle glow shadow; secondary ghost "Read this week's issue" with a tiny arrow that nudges right on hover.
+Below CTAs, a 3-column mono stat row with hairline dividers: 200+ sources scanned, ~7 signals surfaced, 6 min to read.
+In the upper-right third, a floating, slightly tilted (rotate: 2deg) preview of this week's newsletter — real headlines from the issue ("Salesforce bets the company on AI agent infrastructure", "AI infrastructure valuations are decoupling from revenue reality", "OpenAI is building a Super App"). The preview is a real HTML card using the newsletter's exact styling (dark #1A1A2E header, 4px --accent bottom border, blue-left-border h3s). Subtle parallax on mouse move (translate ±8px based on cursor).
+
+3. Marquee "As read by" strip
+Infinite horizontal scroll, slow. Mono text, 13px, --ink-low. Fake-but-credible placeholders separated by ·: "Partners at top-tier funds · Operators at Series B–D companies · Chiefs of staff · Heads of strategy · Independent LPs". Pure CSS @keyframes translateX marquee, pauses on hover.
+4. "The problem" section
+Big editorial moment. Full-width dark band. Two columns:
+
+Left (60%): serif H2 "You don't have a news problem. You have a signal problem." Sub paragraph explaining: too many feeds, too many takes, too little synthesis. Written like a magazine lede, not marketing copy. Max 3 short paragraphs.
+Right (40%): a bento of 4 small cards showing the "noise" — fake headline snippets in muted text with strikethroughs over the filler. Hover each card → it flips to reveal what we would have written instead (the "signal" version) in --ink-hi. Use CSS 3D transforms for the flip.
+
+5. "What you get" — bento grid
+H2 "Seven signals. One email. Zero filler." Bento layout, 4 tiles at varied sizes (large + small + small + wide), CSS grid with named areas.
+
+Large tile: "The weekly read" — animated ASCII-ish diagram of how the newsletter is structured (60-second summary → signals → market moves → opportunities → bottom line). Use CSS grid to lay it out like a schematic with mono labels.
+Wide tile: "What most people miss" — scrollable vignette showing 3 real past "miss" insights (pull from the sample). Each one auto-advances every 4s with fade; small dots indicate position.
+Small tile 1: "Written by one analyst, not a team" — tight headshot-less bio card.
+Small tile 2: "6 minutes, guaranteed" — a mono word-count live counter ticking up then settling at ~1,850 words.
+Every tile has subtle border glow on hover using box-shadow in --accent-glow.
+
+6. Sample issue — interactive comparison
+The signature interactive moment. Heading: "See exactly what you get in each tier."
+A single wide card rendered as a real newsletter. Two states:
+
+Toggle at top: [ Free edition ] [ Premium edition ] — sliding pill selector (animated transform: translateX).
+When "Free" is selected, the premium-only sections blur and show an overlaid lock icon with "Premium". When "Premium" is selected, the blur lifts, sections animate in, and small + indicators briefly pulse on the sections that were unlocked.
+Use the real content structure: "This Week in 60 Seconds" (both tiers), "Top Signals" (Free: 1 full + 2 teased; Premium: all 3 full), "What Most People Miss" (premium-only), "What You Should Do" (premium-only), "Market Moves" (free: 1 paragraph; premium: full), "Opportunities" (free: 2 bullets; premium: all 5), "Bottom Line" (both).
+Styling matches the newsletter exactly (Georgia body, Arial headings, #1A1A2E h1s, #2980B9 left-border h3s).
+
+7. Pricing — two columns, the centerpiece
+H2 "Pick your depth." Sub: "Same research. Two ways to read it."
+Billing toggle above the cards: [ Monthly ] [ Annual — save 25% ], sliding pill, animates the price numbers (count up/down using requestAnimationFrame).
+Two cards, equal height, 32px gap, hairline borders, 16px radius.
+
+Free card (subtle, bg-1):
+
+Eyebrow mono label: "FREE · WEEKLY"
+Price: "$0" (serif, 72px), mono "/ forever" subscript
+One-liner: "The weekly pulse."
+Divider.
+Feature list with custom SVG check in --accent:
+· This Week in 60 Seconds · The top signal, in full · Teasers for signals 2–3 · First paragraph of Market Moves · Top 2 Opportunities · Bottom Line takeaway
+CTA: outlined "Start free →"
+Micro line below: "No card required."
+
+
+Premium card (elevated, --bg-2, 4px --accent top border like the newsletter header, faint gradient wash, small "MOST POPULAR" mono badge top-right):
+
+Eyebrow: "PREMIUM · WEEKLY + FULL ARCHIVE"
+Price: "$12" (serif, 72px), mono "/ month". Smaller line below in --ink-mid: "$108/year — save 25%"
+One-liner: "Everything. Every week."
+Divider.
+Feature list with --accent checks:
+· Everything in Free · All 5–7 Top Signals in full depth · What Most People Miss — the non-obvious read · What You Should Do — by role (founder / investor / operator) · Full Market Moves analysis · Full Market Positioning · Full Opportunities breakdown · My Take — the editor's unfiltered call · Full searchable archive · Priority replies to questions
+CTA: solid --accent "Upgrade to Premium →", with a faint glow and a 2px scale on hover (magnetic effect following cursor within a ±8px range).
+Micro line: "Cancel anytime. No contracts. 14-day refund."
+
+
+
+Cards lift on hover (translateY -4px, shadow deepens), with the hairline border shifting to --accent at 40% opacity.
+8. "How it works" — timeline
+H2 "How an issue gets made." A vertical timeline with 4 steps, numbered in large serif, each with a small mono metadata line (e.g., "Mon–Wed · ~200 sources scanned"). Steps: Scan → Filter → Analyze → Ship. A thin animated line draws itself down the timeline as you scroll into view.
+9. "Who writes this" — editorial
+Single wide card, serif pull-quote style: "Written by one analyst. No AI slop. No sponsored takes. If it's in the newsletter, I stand behind it." Attribution line in mono. Small note: "15 years across venture, markets, and enterprise software."
+10. FAQ — accordions
+Native <details> with custom styling. Smooth height animation on open (use ::details-content where supported, fallback to JS). Questions: "What's actually in the free version?", "How is this different from Stratechery / The Information / Bloomberg?", "Can I cancel anytime?", "When does it arrive and how long is it?", "Do you cover [sector]?" (list the real categories: AI & Tech, Business, Markets, Geopolitics, Logistics, Energy), "What's your editorial policy on AI-generated content?".
+11. Final CTA
+Full-width dark band with the mesh-gradient blob behind it. Serif H2 (massive): "Start reading the one email that respects your time." Below: dual CTA buttons again. Mono footer line: "Every Friday · 7 a.m. ET · ~6 minutes · Cancel anytime."
+12. Footer
+Hairline top border. Three columns: (1) Wordmark + one-line description + email input "your@email.com" with an inline subscribe arrow; (2) Links: Sample, Pricing, FAQ, Archive, Contact; (3) Legal: Privacy, Terms, RSS. Bottom row, full width, mono 11px: "© 2026 Intelligence Brief · Filtered to what matters · Built for the people who build."
+Interactions & polish (don't skip these — they're the difference):
+
+Scroll-reveal on every major block (fade + translateY 16px → 0, 600ms, staggered children).
+Magnetic hover on primary CTAs — button translates up to 6px toward cursor.
+Cursor: add a subtle 8px ring that follows the cursor on desktop (disabled on touch), lags behind with easing. Turns into --accent color when hovering interactive elements.
+The date/week-number in the hero computes live on page load.
+Keyboard shortcut: press S anywhere on the page → smooth-scroll to pricing. Press / → focus the email field in the footer. Show a small "Press S for pricing" hint in the corner on first load, dismissible.
+Every heading animates with a mask-reveal (text slides up from below a clipping mask) when it enters the viewport.
+
+Copy principles — non-negotiable:
+
+No generic SaaS copy. No "unlock insights". No "supercharge".
+Short sentences. Real numbers. Specific claims.
+The tone is the newsletter's tone: confident, analytical, slightly dry, allergic to hype.
+Every headline should pass the "would a managing partner respect this?" test.
+
+Generate the complete index.html, styles.css, and script.js now. Comment each major section. Give me the files ready to open.

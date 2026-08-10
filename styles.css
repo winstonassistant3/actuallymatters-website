@@ -114,69 +114,6 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   CURSOR RING
-   ============================================================ */
-.cursor-ring {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  border: 1.5px solid var(--ink-mid);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: border-color 0.15s, width 0.2s, height 0.2s;
-  will-change: left, top;
-}
-.cursor-ring.on-interactive {
-  width: 24px;
-  height: 24px;
-  border-color: var(--accent);
-}
-@media (hover: none) { .cursor-ring { display: none; } }
-
-/* ============================================================
-   KEYBOARD HINT
-   ============================================================ */
-.kbd-hint {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  z-index: 800;
-  background: var(--bg-1);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
-  padding: 10px 14px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--ink-mid);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  animation: slideUp 0.4s ease 1.5s both;
-}
-.kbd-hint kbd {
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  padding: 1px 5px;
-  color: var(--ink-hi);
-}
-.kbd-dismiss {
-  color: var(--ink-low);
-  font-size: 16px;
-  line-height: 1;
-  transition: color 0.2s;
-  margin-left: 4px;
-}
-.kbd-dismiss:hover { color: var(--ink-hi); }
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================================================
    NAV
    ============================================================ */
 .nav {
@@ -414,29 +351,6 @@ ul { list-style: none; }
 .nl-card-footer { padding: 10px 22px; border-top: 1px solid var(--line); font-size: 10px; color: var(--ink-low); }
 
 /* ============================================================
-   MARQUEE
-   ============================================================ */
-.marquee-strip {
-  overflow: hidden;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-1);
-  padding: 14px 0;
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 45s linear infinite;
-}
-.marquee-strip:hover .marquee-track { animation-play-state: paused; }
-.marquee-text { font-size: 12px; color: var(--ink-low); white-space: nowrap; }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
-
-/* ============================================================
    SHARED SECTION LAYOUT
    ============================================================ */
 .section-inner {
@@ -595,22 +509,6 @@ ul { list-style: none; }
 }
 .tier-btn.active { color: var(--ink-hi); }
 
-.billing-toggle {
-  position: relative;
-  display: inline-flex;
-  background: var(--bg-1);
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  padding: 4px;
-  margin-bottom: 44px;
-}
-.billing-btn {
-  position: relative; z-index: 1;
-  padding: 8px 20px; font-size: 14px;
-  border-radius: 100px; color: var(--ink-mid);
-  transition: color 0.3s; white-space: nowrap;
-}
-.billing-btn.active { color: var(--ink-hi); }
 
 .toggle-pill {
   position: absolute;
@@ -772,8 +670,7 @@ ul { list-style: none; }
 .price-amount  { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
 .price-num     { font-size: 72px; font-weight: 300; line-height: 1; }
 .price-period  { font-size: 13px; color: var(--ink-low); }
-.price-annual-line { font-size: 12px; color: var(--ink-mid); margin-bottom: 10px; opacity: 0; transition: opacity 0.3s; }
-.price-annual-line.visible { opacity: 1; }
+.price-annual-line { font-size: 12px; color: var(--ink-mid); margin-bottom: 10px; }
 .price-tagline  { font-size: 15px; color: var(--ink-mid); margin-bottom: 18px; }
 .price-divider  { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
 .price-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
@@ -1069,7 +966,6 @@ textarea.form-input { resize: vertical; min-height: 140px; line-height: 1.6; }
 @media (prefers-reduced-motion: reduce) {
   .reveal-heading { clip-path: none; transition: none; }
   .reveal-block   { opacity: 1; transform: none; transition: none; }
-  .cursor-ring    { display: none; }
   body            { cursor: auto; }
 }
 
