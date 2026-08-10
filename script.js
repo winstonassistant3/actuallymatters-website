@@ -15,7 +15,7 @@
  * 11. Vignette slider      — auto-advances every 4s, dot controls
  * 12. Word counter         — counts from 0 → 1,500 when tile enters viewport
  * 13. Timeline fill        — animated accent line draws as you scroll
- * 14. Keyboard shortcuts   — S → pricing, / → footer email
+ * 14. Keyboard shortcut    — S → pricing
  */
 
 /* ============================================================
@@ -280,10 +280,9 @@ if (timelineFill && timelineEl) {
 
 /* ============================================================
    14. KEYBOARD SHORTCUTS
-   S  — smooth-scroll to #pricing
-   /  — scroll to footer, focus email input
-   Both are suppressed when focus is inside a text field,
-   and when meta/ctrl modifiers are held (browser shortcuts).
+   S — smooth-scroll to #pricing. Suppressed inside a text field
+   and when meta/ctrl is held, so browser shortcuts still work.
+   The "/" shortcut went with the footer email capture.
    ============================================================ */
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -294,13 +293,4 @@ document.addEventListener('keydown', e => {
     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
   }
 
-  if (e.key === '/') {
-    e.preventDefault();
-    const fe = document.getElementById('footerEmail');
-    if (fe) {
-      fe.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      /* Small delay so scroll completes before focusing */
-      setTimeout(() => fe.focus(), 380);
-    }
-  }
 });
