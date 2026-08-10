@@ -62,9 +62,29 @@ const heroIssueEl  = document.getElementById('heroIssue');
 const nlCardDateEl = document.getElementById('nlCardDate');
 const sampleDateEl = document.getElementById('sampleDate');
 
+/* Week number is only a placeholder until the real issue number loads. */
 if (heroIssueEl)  heroIssueEl.textContent  = `ISSUE №${weekNum} · ${dateStr}`;
 if (nlCardDateEl) nlCardDateEl.textContent = dateUpper;
 if (sampleDateEl) sampleDateEl.textContent = dateUpper;
+
+/* The archive index is the only source of truth for what the latest issue
+   actually is. Without this the hero shows an ISO week number, which does
+   not match the issue numbers published on the archive page. */
+fetch('archive/index.json')
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(entries => {
+    if (!entries || !entries.length) return;
+    const latest = entries[0];
+    const when = new Date(latest.date + 'T00:00:00').toLocaleDateString('en-US',
+      { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+    if (heroIssueEl) heroIssueEl.textContent = `ISSUE №${latest.issue} · ${when}`;
+    const readLatest = document.getElementById('readLatest');
+    if (readLatest) {
+      readLatest.href = latest.file;
+      readLatest.removeAttribute('target');
+    }
+  })
+  .catch(() => { /* keep the placeholder; the page still works offline */ });
 
 /* ============================================================
    3. NAV CONDENSE

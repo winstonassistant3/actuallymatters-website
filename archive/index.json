@@ -180,5 +180,19 @@
     "lead": "AI IS POISONING The Citation Graph \u2014 And No One Knows How Deep It Goes",
     "tier": "premium",
     "file": "archive/issue-030.html"
+  },
+  {
+    "issue": 9,
+    "date": "2026-04-23",
+    "lead": "The Strait of Hormuz Is Closed \u2014 and 20% of Global Oil Is Stuck",
+    "tier": "free",
+    "file": "issue-9.html"
+  },
+  {
+    "issue": 8,
+    "date": "2026-04-22",
+    "lead": "SpaceX Bets $60b That AI Coding Tools Are Infrastructure, Not Software",
+    "tier": "free",
+    "file": "issue-8.html"
   }
 ]
