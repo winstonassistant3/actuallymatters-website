@@ -6,7 +6,6 @@
  *  1. Theme toggle         — dark/light, persisted in localStorage
  *  2. Live dates           — ISO week number + formatted date stamped into DOM
  *  3. Nav condense         — adds .scrolled class after 40px scroll
- *  4. Cursor ring          — lagging 10px ring, accent colour on interactive elements
  *  5. Scroll reveal        — IntersectionObserver drives .in-view on sections
  *  6. Hero parallax        — newsletter card translates ±9px on mouse move
  *  7. Magnetic buttons     — CTA buttons follow cursor within ±6px
@@ -76,39 +75,6 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
-
-/* ============================================================
-   4. CURSOR RING
-   A small ring that follows the cursor with easing lag (lerp 0.18).
-   Grows and turns accent colour (.on-interactive) when hovering
-   any anchor, button, or focusable element.
-   Disabled on touch devices via the (hover: hover) media query.
-   ============================================================ */
-const ring = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-if (window.matchMedia('(hover: hover)').matches) {
-  /* Track real cursor position */
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  /* Animate ring toward cursor with linear interpolation */
-  (function animateRing() {
-    ringX += (mouseX - ringX) * 0.18;
-    ringY += (mouseY - ringY) * 0.18;
-    ring.style.left = ringX + 'px';
-    ring.style.top  = ringY + 'px';
-    requestAnimationFrame(animateRing);
-  })();
-
-  /* Toggle accent state on interactive elements */
-  document.querySelectorAll('a, button, [tabindex="0"], input').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('on-interactive'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('on-interactive'));
-  });
-}
 
 /* ============================================================
    5. SCROLL REVEAL

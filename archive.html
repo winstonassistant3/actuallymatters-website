@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archive — actually.matters</title>
+<meta name="description" content="Every past issue of actually.matters. Free editions from day one; full issues unlock after 14 days.">
+<link rel="icon" type="image/png" sizes="32x32" href="Media/favicon/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ── Archive ledger ──────────────────────────────────────────
+     A typographic index, not a card grid. Hairline rules, tabular
+     numerals, and one accent that only appears on the row you are
+     pointing at. ───────────────────────────────────────────── */
+  .arch-wrap { max-width: 1080px; margin: 0 auto; padding: calc(var(--nav-h) + 72px) var(--pad) 120px; }
+  .arch-head { display: grid; grid-template-columns: 1fr auto; gap: 32px;
+               align-items: end; padding-bottom: 28px;
+               border-bottom: 1px solid var(--line); }
+  .arch-title { font-family: var(--font-serif); font-weight: 300;
+                font-size: clamp(44px, 7vw, 92px); line-height: .92;
+                letter-spacing: -.03em; color: var(--ink-hi); }
+  .arch-title em { font-style: italic; color: var(--accent); }
+  .arch-meta { font-family: var(--font-mono); font-size: 11px; line-height: 2;
+               color: var(--ink-low); text-transform: uppercase;
+               letter-spacing: .14em; text-align: right; }
+  .arch-meta b { color: var(--ink-hi); font-weight: 500; }
+  .arch-note { margin: 26px 0 0; max-width: 62ch; color: var(--ink-mid);
+               font-size: 15px; line-height: 1.7; }
+  .arch-note strong { color: var(--ink-hi); font-weight: 600; }
+
+  .ledger { list-style: none; margin: 48px 0 0; padding: 0; }
+  .ledger-month { font-family: var(--font-mono); font-size: 10.5px;
+                  letter-spacing: .22em; text-transform: uppercase;
+                  color: var(--ink-low); padding: 34px 0 12px;
+                  position: sticky; top: calc(var(--nav-h) - 1px); z-index: 5;
+                  background: var(--bg-0);
+                  /* the first shadow paints a solid cap over the strip of row
+                     that would otherwise show between nav and label */
+                  box-shadow: 0 -22px 0 0 var(--bg-0), 0 10px 12px -8px var(--bg-0); }
+  .ledger-row { border-top: 1px solid var(--line); }
+  .ledger-row a { display: grid; grid-template-columns: 76px 68px 1fr 108px;
+                  gap: 20px; align-items: baseline; padding: 17px 0;
+                  text-decoration: none; position: relative;
+                  transition: padding-left .28s cubic-bezier(.2,.7,.3,1); }
+  .ledger-row a::before { content: ""; position: absolute; left: -18px; top: 50%;
+                          width: 0; height: 1px; background: var(--accent);
+                          transition: width .28s cubic-bezier(.2,.7,.3,1); }
+  .ledger-row a:hover { padding-left: 14px; }
+  .ledger-row a:hover::before { width: 26px; }
+  .ledger-no { font-family: var(--font-mono); font-size: 26px; font-weight: 400;
+               font-variant-numeric: tabular-nums; color: var(--ink-low);
+               transition: color .2s; letter-spacing: -.02em; }
+  .ledger-row a:hover .ledger-no { color: var(--accent); }
+  .ledger-date { font-family: var(--font-mono); font-size: 11px;
+                 color: var(--ink-low); text-transform: uppercase;
+                 letter-spacing: .1em; }
+  .ledger-lead { font-family: var(--font-serif); font-size: 19px; font-weight: 400;
+                 line-height: 1.32; color: var(--ink-hi); letter-spacing: -.01em; }
+  .ledger-tier { font-family: var(--font-mono); font-size: 10px; text-align: right;
+                 text-transform: uppercase; letter-spacing: .12em;
+                 color: var(--ink-low); white-space: nowrap; }
+  .ledger-row.is-full .ledger-tier { color: var(--signal); }
+  .ledger-row.is-full .ledger-tier::before { content: "\25A0"; margin-right: 7px; }
+  .ledger-row:not(.is-full) .ledger-tier::before { content: "\25A1"; margin-right: 7px; }
+
+  .arch-cta { margin-top: 88px; padding-top: 40px; border-top: 1px solid var(--line);
+              display: flex; flex-wrap: wrap; gap: 26px;
+              align-items: center; justify-content: space-between; }
+  .arch-cta p { font-family: var(--font-serif); font-size: clamp(22px, 3vw, 32px);
+                font-weight: 300; line-height: 1.25; color: var(--ink-hi);
+                max-width: 22ch; letter-spacing: -.02em; }
+
+  @media (max-width: 720px) {
+    .arch-head { grid-template-columns: 1fr; align-items: start; }
+    .arch-meta { text-align: left; }
+    .ledger-row a { grid-template-columns: 58px 1fr; gap: 6px 16px; padding: 15px 0; }
+    .ledger-no { font-size: 20px; }
+    .ledger-date { grid-column: 2; order: -1; }
+    .ledger-lead { grid-column: 2; font-size: 17px; }
+    .ledger-tier { grid-column: 2; text-align: left; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ledger-row a, .ledger-row a::before { transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="actually.matters home">
+        <img class="nav-logo nav-logo-dark" src="Media/logo/lockup-horizontal-dark.png" alt="actually.matters">
+        <img class="nav-logo nav-logo-light" src="Media/logo/lockup-horizontal-light.png" alt="actually.matters">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#sample">Sample</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="archive.html" aria-current="page">Archive</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="https://buy.stripe.com/dRm7sLfQmdQN2nh9ECfMA02" target="_blank" rel="noopener" class="btn btn-sm btn-accent">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="arch-wrap">
+    <div class="arch-head">
+      <h1 class="arch-title">Every issue,<br><em>on the record</em>.</h1>
+      <div class="arch-meta">
+        <b>26</b> issues published<br>
+        <b>22</b> unlocked in full<br>
+        Wed &amp; Sat &middot; morning CET
+      </div>
+    </div>
+
+    <p class="arch-note">
+      Free editions are published here the morning they go out. The full issue &mdash;
+      every signal in depth, the positioning, the uncertainties &mdash; unlocks
+      <strong>14 days later</strong>, once the analysis has aged out of the window
+      where it was worth paying for. Subscribers read it while it still matters.
+    </p>
+
+    <ul class="ledger">
+        <li class="ledger-month"><span>August 2026</span></li>
+        <li class="ledger-row"><a href="archive/issue-056.html"><span class="ledger-no">056</span><span class="ledger-date">08 Aug</span><span class="ledger-lead">OpenAI Stops a Model Because It Got Too Good at Hacking</span><span class="ledger-tier">Free edition</span></a></li>
+        <li class="ledger-row"><a href="archive/issue-055.html"><span class="ledger-no">055</span><span class="ledger-date">05 Aug</span><span class="ledger-lead">SpaceX Is Now an AI Infrastructure Play Disguised as a Rocket Company</span><span class="ledger-tier">Free edition</span></a></li>
+        <li class="ledger-row"><a href="archive/issue-054.html"><span class="ledger-no">054</span><span class="ledger-date">01 Aug</span><span class="ledger-lead">AI Models Are Now Autonomously Attacking Other Systems — and the Labs Didn't See It Coming</span><span class="ledger-tier">Free edition</span></a></li>
+        <li class="ledger-month"><span>July 2026</span></li>
+        <li class="ledger-row"><a href="archive/issue-053.html"><span class="ledger-no">053</span><span class="ledger-date">29 Jul</span><span class="ledger-lead">The Rogue Agent Problem Just Became Real — and OpenAI Blinked</span><span class="ledger-tier">Free edition</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-052.html"><span class="ledger-no">052</span><span class="ledger-date">25 Jul</span><span class="ledger-lead">The AI Margin Wars Begin — and Big Tech's Balance Sheets Are Losing</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-051.html"><span class="ledger-no">051</span><span class="ledger-date">22 Jul</span><span class="ledger-lead">TSMC Pays $200bn to Keep America's Business</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-049.html"><span class="ledger-no">049</span><span class="ledger-date">18 Jul</span><span class="ledger-lead">China Weaponises Open Source — Moonshot's Kimi K3 Changes the Game</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-048.html"><span class="ledger-no">048</span><span class="ledger-date">15 Jul</span><span class="ledger-lead">The AI Hardware Gold Rush Is Creating Strange New Winners — and Brutal Losers</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-047.html"><span class="ledger-no">047</span><span class="ledger-date">11 Jul</span><span class="ledger-lead">Apple Sues OpenAI — the AI Partnership Model Just Broke</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-046.html"><span class="ledger-no">046</span><span class="ledger-date">08 Jul</span><span class="ledger-lead">The Inference Wars Are Over — and the Hyperscalers Won</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-045.html"><span class="ledger-no">045</span><span class="ledger-date">04 Jul</span><span class="ledger-lead">Model Hedging Just Became Enterprise Standard — and Anthropic Proved Why</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-044.html"><span class="ledger-no">044</span><span class="ledger-date">01 Jul</span><span class="ledger-lead">Morgan Stanley Proved Enterprise AI Works — by Constraining It</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-month"><span>June 2026</span></li>
+        <li class="ledger-row is-full"><a href="archive/issue-043.html"><span class="ledger-no">043</span><span class="ledger-date">27 Jun</span><span class="ledger-lead">The AI Export Control Experiment Just Went Live — and It's Already Cracking</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-042.html"><span class="ledger-no">042</span><span class="ledger-date">24 Jun</span><span class="ledger-lead">Anthropic Turns Claude Into Infrastructure — Not Software</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-041.html"><span class="ledger-no">041</span><span class="ledger-date">20 Jun</span><span class="ledger-lead">The Memory Shortage Just Became a Strategic Constraint — Not a Supply Hiccup</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-040.html"><span class="ledger-no">040</span><span class="ledger-date">17 Jun</span><span class="ledger-lead">The Great AI Commoditization Is Ahead of Schedule — and It's Coming from China</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-039.html"><span class="ledger-no">039</span><span class="ledger-date">13 Jun</span><span class="ledger-lead">The Regulatory Recall — AI Models Can Now Be Yanked Mid-deployment</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-038.html"><span class="ledger-no">038</span><span class="ledger-date">10 Jun</span><span class="ledger-lead">The AI Subscription Price War Just Went Kinetic — and Google Fired First</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-037.html"><span class="ledger-no">037</span><span class="ledger-date">06 Jun</span><span class="ledger-lead">Google Writes SpaceX a $29.4b Check — Compute Moves to Orbit</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-036.html"><span class="ledger-no">036</span><span class="ledger-date">03 Jun</span><span class="ledger-lead">Microsoft Builds the Cage Before the Tiger Escapes</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-month"><span>May 2026</span></li>
+        <li class="ledger-row is-full"><a href="archive/issue-035.html"><span class="ledger-no">035</span><span class="ledger-date">30 May</span><span class="ledger-lead">The SpaceX IPO Is a Trojan Horse for Defense Dependency</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-034.html"><span class="ledger-no">034</span><span class="ledger-date">27 May</span><span class="ledger-lead">The First AI Backlash with Teeth — Google Loses 30% of New Users in Two Weeks</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-033.html"><span class="ledger-no">033</span><span class="ledger-date">23 May</span><span class="ledger-lead">The Agent Memory Problem Just Got Solved — and It's Smaller Than You Think</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-032.html"><span class="ledger-no">032</span><span class="ledger-date">20 May</span><span class="ledger-lead">Google Killed the Search Box — and with It, the Last Constraint on AI Agent Autonomy</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-031.html"><span class="ledger-no">031</span><span class="ledger-date">16 May</span><span class="ledger-lead">The Control Plane War — Ai's Next Battleground Isn't Models, It's Infrastructure</span><span class="ledger-tier">Full issue</span></a></li>
+        <li class="ledger-row is-full"><a href="archive/issue-030.html"><span class="ledger-no">030</span><span class="ledger-date">15 May</span><span class="ledger-lead">AI IS POISONING The Citation Graph — And No One Knows How Deep It Goes</span><span class="ledger-tier">Full issue</span></a></li>
+    </ul>
+
+    <div class="arch-cta">
+      <p>Read them while they are still worth acting on.</p>
+      <a href="https://buy.stripe.com/dRm7sLfQmdQN2nh9ECfMA02" target="_blank" rel="noopener" class="btn btn-accent btn-magnetic">Subscribe &mdash; $19.99/year &rarr;</a>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-bottom">
+      <span class="mono">&copy; 2026 actually.matters &middot; A Mondivio Company &middot; Filtered to what matters.</span>
+      <span class="footer-country mono"><svg class="nl-flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#AE1C28"/><rect y="4" width="18" height="4" fill="#fff"/><rect y="8" width="18" height="4" fill="#21468B"/></svg> Registered in the Netherlands</span>
+    </div>
+  </footer>
+
+  <script>
+    /* Theme parity with the rest of the site. */
+    const html = document.documentElement;
+    html.setAttribute('data-theme', localStorage.getItem('ib-theme') || 'dark');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('ib-theme', next);
+    });
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  </script>
+</body>
+</html>

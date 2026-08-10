@@ -43,14 +43,7 @@
   <!-- ■ GLOBAL CHROME ───────────────────────────────────────── -->
   <!-- SVG noise layer at 3% opacity, fixed over the whole page -->
   <div class="grain" aria-hidden="true"></div>
-  <!-- Cursor ring: lags behind cursor, turns accent on interactive elements -->
-  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-  <!-- First-load keyboard shortcut hint — dismissed by × button -->
-  <div class="kbd-hint" id="kbdHint" role="status">
-    <span>Press <kbd>S</kbd> for pricing · <kbd>/</kbd> to subscribe</span>
-    <button class="kbd-dismiss" aria-label="Dismiss" onclick="this.parentElement.remove()">×</button>
-  </div>
 
   <!-- §1 NAV ──────────────────────────────────────────────────
        Fixed top. Glass-morphism activates (.scrolled) after 40px.
@@ -67,6 +60,7 @@
         <a href="#how-it-works">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
+        <a href="archive.html">Archive</a>
         <a href="contact.html">Contact</a>
       </nav>
       <div class="nav-actions">
@@ -140,15 +134,6 @@
       </div>
     </section>
 
-    <!-- §3 MARQUEE ──────────────────────────────────────────────
-         Pure CSS @keyframes marquee, pauses on hover.
-         Text duplicated so loop is seamless at any viewport width.
-         ──────────────────────────────────────────────────────── -->
-    <div class="marquee-strip" aria-label="Who reads actually.matters">
-      <div class="marquee-track" aria-hidden="true">
-        <span class="mono marquee-text">Partners at top-tier funds · Operators at Series B–D companies · Chiefs of staff · Heads of strategy · Independent LPs · Seed-stage founders · Policy advisors · Family office principals · Managing directors · Portfolio company CEOs · Partners at top-tier funds · Operators at Series B–D companies · Chiefs of staff · Heads of strategy · Independent LPs · Seed-stage founders · Policy advisors · Family office principals · Managing directors · Portfolio company CEOs ·&nbsp;</span>
-      </div>
-    </div>
 
     <!-- §4 PROBLEM ──────────────────────────────────────────────
          Two-column layout. Left: editorial copy. Right: 4 flip
@@ -578,7 +563,7 @@
           <a href="#sample" class="footer-link">Sample</a>
           <a href="#pricing" class="footer-link">Pricing</a>
           <a href="#faq" class="footer-link">FAQ</a>
-          <a href="#" class="footer-link">Archive</a>
+          <a href="archive.html" class="footer-link">Archive</a>
           <a href="contact.html" class="footer-link">Contact</a>
         </nav>
       </div>

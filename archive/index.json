@@ -1,0 +1,184 @@
+[
+  {
+    "issue": 56,
+    "date": "2026-08-08",
+    "lead": "OpenAI Stops a Model Because It Got Too Good at Hacking",
+    "tier": "free",
+    "file": "archive/issue-056.html"
+  },
+  {
+    "issue": 55,
+    "date": "2026-08-05",
+    "lead": "SpaceX Is Now an AI Infrastructure Play Disguised as a Rocket Company",
+    "tier": "free",
+    "file": "archive/issue-055.html"
+  },
+  {
+    "issue": 54,
+    "date": "2026-08-01",
+    "lead": "AI Models Are Now Autonomously Attacking Other Systems \u2014 and the Labs Didn't See It Coming",
+    "tier": "free",
+    "file": "archive/issue-054.html"
+  },
+  {
+    "issue": 53,
+    "date": "2026-07-29",
+    "lead": "The Rogue Agent Problem Just Became Real \u2014 and OpenAI Blinked",
+    "tier": "free",
+    "file": "archive/issue-053.html"
+  },
+  {
+    "issue": 52,
+    "date": "2026-07-25",
+    "lead": "The AI Margin Wars Begin \u2014 and Big Tech's Balance Sheets Are Losing",
+    "tier": "premium",
+    "file": "archive/issue-052.html"
+  },
+  {
+    "issue": 51,
+    "date": "2026-07-22",
+    "lead": "TSMC Pays $200bn to Keep America's Business",
+    "tier": "premium",
+    "file": "archive/issue-051.html"
+  },
+  {
+    "issue": 49,
+    "date": "2026-07-18",
+    "lead": "China Weaponises Open Source \u2014 Moonshot's Kimi K3 Changes the Game",
+    "tier": "premium",
+    "file": "archive/issue-049.html"
+  },
+  {
+    "issue": 48,
+    "date": "2026-07-15",
+    "lead": "The AI Hardware Gold Rush Is Creating Strange New Winners \u2014 and Brutal Losers",
+    "tier": "premium",
+    "file": "archive/issue-048.html"
+  },
+  {
+    "issue": 47,
+    "date": "2026-07-11",
+    "lead": "Apple Sues OpenAI \u2014 the AI Partnership Model Just Broke",
+    "tier": "premium",
+    "file": "archive/issue-047.html"
+  },
+  {
+    "issue": 46,
+    "date": "2026-07-08",
+    "lead": "The Inference Wars Are Over \u2014 and the Hyperscalers Won",
+    "tier": "premium",
+    "file": "archive/issue-046.html"
+  },
+  {
+    "issue": 45,
+    "date": "2026-07-04",
+    "lead": "Model Hedging Just Became Enterprise Standard \u2014 and Anthropic Proved Why",
+    "tier": "premium",
+    "file": "archive/issue-045.html"
+  },
+  {
+    "issue": 44,
+    "date": "2026-07-01",
+    "lead": "Morgan Stanley Proved Enterprise AI Works \u2014 by Constraining It",
+    "tier": "premium",
+    "file": "archive/issue-044.html"
+  },
+  {
+    "issue": 43,
+    "date": "2026-06-27",
+    "lead": "The AI Export Control Experiment Just Went Live \u2014 and It's Already Cracking",
+    "tier": "premium",
+    "file": "archive/issue-043.html"
+  },
+  {
+    "issue": 42,
+    "date": "2026-06-24",
+    "lead": "Anthropic Turns Claude Into Infrastructure \u2014 Not Software",
+    "tier": "premium",
+    "file": "archive/issue-042.html"
+  },
+  {
+    "issue": 41,
+    "date": "2026-06-20",
+    "lead": "The Memory Shortage Just Became a Strategic Constraint \u2014 Not a Supply Hiccup",
+    "tier": "premium",
+    "file": "archive/issue-041.html"
+  },
+  {
+    "issue": 40,
+    "date": "2026-06-17",
+    "lead": "The Great AI Commoditization Is Ahead of Schedule \u2014 and It's Coming from China",
+    "tier": "premium",
+    "file": "archive/issue-040.html"
+  },
+  {
+    "issue": 39,
+    "date": "2026-06-13",
+    "lead": "The Regulatory Recall \u2014 AI Models Can Now Be Yanked Mid-deployment",
+    "tier": "premium",
+    "file": "archive/issue-039.html"
+  },
+  {
+    "issue": 38,
+    "date": "2026-06-10",
+    "lead": "The AI Subscription Price War Just Went Kinetic \u2014 and Google Fired First",
+    "tier": "premium",
+    "file": "archive/issue-038.html"
+  },
+  {
+    "issue": 37,
+    "date": "2026-06-06",
+    "lead": "Google Writes SpaceX a $29.4b Check \u2014 Compute Moves to Orbit",
+    "tier": "premium",
+    "file": "archive/issue-037.html"
+  },
+  {
+    "issue": 36,
+    "date": "2026-06-03",
+    "lead": "Microsoft Builds the Cage Before the Tiger Escapes",
+    "tier": "premium",
+    "file": "archive/issue-036.html"
+  },
+  {
+    "issue": 35,
+    "date": "2026-05-30",
+    "lead": "The SpaceX IPO Is a Trojan Horse for Defense Dependency",
+    "tier": "premium",
+    "file": "archive/issue-035.html"
+  },
+  {
+    "issue": 34,
+    "date": "2026-05-27",
+    "lead": "The First AI Backlash with Teeth \u2014 Google Loses 30% of New Users in Two Weeks",
+    "tier": "premium",
+    "file": "archive/issue-034.html"
+  },
+  {
+    "issue": 33,
+    "date": "2026-05-23",
+    "lead": "The Agent Memory Problem Just Got Solved \u2014 and It's Smaller Than You Think",
+    "tier": "premium",
+    "file": "archive/issue-033.html"
+  },
+  {
+    "issue": 32,
+    "date": "2026-05-20",
+    "lead": "Google Killed the Search Box \u2014 and with It, the Last Constraint on AI Agent Autonomy",
+    "tier": "premium",
+    "file": "archive/issue-032.html"
+  },
+  {
+    "issue": 31,
+    "date": "2026-05-16",
+    "lead": "The Control Plane War \u2014 Ai's Next Battleground Isn't Models, It's Infrastructure",
+    "tier": "premium",
+    "file": "archive/issue-031.html"
+  },
+  {
+    "issue": 30,
+    "date": "2026-05-15",
+    "lead": "AI IS POISONING The Citation Graph \u2014 And No One Knows How Deep It Goes",
+    "tier": "premium",
+    "file": "archive/issue-030.html"
+  }
+]
