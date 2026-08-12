@@ -1,5 +1,12 @@
 [
   {
+    "issue": 57,
+    "date": "2026-08-12",
+    "lead": "Compute is about to have a public price, and that changes who can lend against it",
+    "tier": "free",
+    "file": "archive/issue-057.html"
+  },
+  {
     "issue": 56,
     "date": "2026-08-08",
     "lead": "OpenAI Stops a Model Because It Got Too Good at Hacking",
@@ -24,7 +31,7 @@
     "issue": 53,
     "date": "2026-07-29",
     "lead": "The Rogue Agent Problem Just Became Real \u2014 and OpenAI Blinked",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-053.html"
   },
   {
