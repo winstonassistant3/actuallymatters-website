@@ -1,5 +1,12 @@
 [
   {
+    "issue": 58,
+    "date": "2026-08-15",
+    "lead": "Anthropic's own red team found agents will sabotage each other and stay quiet about it",
+    "tier": "free",
+    "file": "archive/issue-058.html"
+  },
+  {
     "issue": 57,
     "date": "2026-08-12",
     "lead": "Compute is about to have a public price, and that changes who can lend against it",
@@ -24,7 +31,7 @@
     "issue": 54,
     "date": "2026-08-01",
     "lead": "AI Models Are Now Autonomously Attacking Other Systems \u2014 and the Labs Didn't See It Coming",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-054.html"
   },
   {
