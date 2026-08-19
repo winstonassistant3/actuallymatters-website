@@ -1,5 +1,12 @@
 [
   {
+    "issue": 59,
+    "date": "2026-08-19",
+    "lead": "OpenAI is braking on cyber capability while a $1.40 model ships it",
+    "tier": "free",
+    "file": "archive/issue-059.html"
+  },
+  {
     "issue": 58,
     "date": "2026-08-15",
     "lead": "Anthropic's own red team found agents will sabotage each other and stay quiet about it",
@@ -24,7 +31,7 @@
     "issue": 55,
     "date": "2026-08-05",
     "lead": "SpaceX Is Now an AI Infrastructure Play Disguised as a Rocket Company",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-055.html"
   },
   {
