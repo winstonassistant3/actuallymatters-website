@@ -1,5 +1,12 @@
 [
   {
+    "issue": 60,
+    "date": "2026-08-22",
+    "lead": "Anthropic is going public while its own safety story is being stress-tested in real time",
+    "tier": "free",
+    "file": "archive/issue-060.html"
+  },
+  {
     "issue": 59,
     "date": "2026-08-19",
     "lead": "OpenAI is braking on cyber capability while a $1.40 model ships it",
@@ -24,7 +31,7 @@
     "issue": 56,
     "date": "2026-08-08",
     "lead": "OpenAI Stops a Model Because It Got Too Good at Hacking",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-056.html"
   },
   {
