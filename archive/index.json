@@ -1,5 +1,12 @@
 [
   {
+    "issue": 61,
+    "date": "2026-08-26",
+    "lead": "The $103,000 headcount tax lands on a sector that already budgeted for cheap talent",
+    "tier": "free",
+    "file": "archive/issue-061.html"
+  },
+  {
     "issue": 60,
     "date": "2026-08-22",
     "lead": "Anthropic is going public while its own safety story is being stress-tested in real time",
@@ -24,7 +31,7 @@
     "issue": 57,
     "date": "2026-08-12",
     "lead": "Compute is about to have a public price, and that changes who can lend against it",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-057.html"
   },
   {
