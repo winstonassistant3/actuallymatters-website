@@ -1,5 +1,12 @@
 [
   {
+    "issue": 62,
+    "date": "2026-08-29",
+    "lead": "Compute is now a leveraged leasing business, and the lender is the one holding the residual",
+    "tier": "free",
+    "file": "archive/issue-062.html"
+  },
+  {
     "issue": 61,
     "date": "2026-08-26",
     "lead": "The $103,000 headcount tax lands on a sector that already budgeted for cheap talent",
@@ -24,7 +31,7 @@
     "issue": 58,
     "date": "2026-08-15",
     "lead": "Anthropic's own red team found agents will sabotage each other and stay quiet about it",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-058.html"
   },
   {
