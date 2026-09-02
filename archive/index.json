@@ -1,5 +1,12 @@
 [
   {
+    "issue": 63,
+    "date": "2026-09-02",
+    "lead": "Offensive capability is now a product release with a launch calendar",
+    "tier": "free",
+    "file": "archive/issue-063.html"
+  },
+  {
     "issue": 62,
     "date": "2026-08-29",
     "lead": "Compute is now a leveraged leasing business, and the lender is the one holding the residual",
@@ -24,7 +31,7 @@
     "issue": 59,
     "date": "2026-08-19",
     "lead": "OpenAI is braking on cyber capability while a $1.40 model ships it",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-059.html"
   },
   {
