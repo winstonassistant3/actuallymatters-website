@@ -1,5 +1,12 @@
 [
   {
+    "issue": 64,
+    "date": "2026-09-05",
+    "lead": "Nscale wants $3.5B against a single customer contract",
+    "tier": "free",
+    "file": "archive/issue-064.html"
+  },
+  {
     "issue": 63,
     "date": "2026-09-02",
     "lead": "Offensive capability is now a product release with a launch calendar",
@@ -24,7 +31,7 @@
     "issue": 60,
     "date": "2026-08-22",
     "lead": "Anthropic is going public while its own safety story is being stress-tested in real time",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-060.html"
   },
   {
