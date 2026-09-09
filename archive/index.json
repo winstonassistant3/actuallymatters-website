@@ -1,5 +1,12 @@
 [
   {
+    "issue": 65,
+    "date": "2026-09-09",
+    "lead": "An energy shock is arriving with no rate-cut cushion underneath it",
+    "tier": "free",
+    "file": "archive/issue-065.html"
+  },
+  {
     "issue": 64,
     "date": "2026-09-05",
     "lead": "Nscale wants $3.5B against a single customer contract",
@@ -24,7 +31,7 @@
     "issue": 61,
     "date": "2026-08-26",
     "lead": "The $103,000 headcount tax lands on a sector that already budgeted for cheap talent",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-061.html"
   },
   {
