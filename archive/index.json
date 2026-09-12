@@ -1,5 +1,12 @@
 [
   {
+    "issue": 66,
+    "date": "2026-09-12",
+    "lead": "Distillation stops being an accusation and becomes a strategy",
+    "tier": "free",
+    "file": "archive/issue-066.html"
+  },
+  {
     "issue": 65,
     "date": "2026-09-09",
     "lead": "An energy shock is arriving with no rate-cut cushion underneath it",
@@ -24,7 +31,7 @@
     "issue": 62,
     "date": "2026-08-29",
     "lead": "Compute is now a leveraged leasing business, and the lender is the one holding the residual",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-062.html"
   },
   {
