@@ -1,5 +1,12 @@
 [
   {
+    "issue": 67,
+    "date": "2026-09-16",
+    "lead": "The zoning board is now the binding constraint on compute",
+    "tier": "free",
+    "file": "archive/issue-067.html"
+  },
+  {
     "issue": 66,
     "date": "2026-09-12",
     "lead": "Distillation stops being an accusation and becomes a strategy",
@@ -24,7 +31,7 @@
     "issue": 63,
     "date": "2026-09-02",
     "lead": "Offensive capability is now a product release with a launch calendar",
-    "tier": "free",
+    "tier": "premium",
     "file": "archive/issue-063.html"
   },
   {
